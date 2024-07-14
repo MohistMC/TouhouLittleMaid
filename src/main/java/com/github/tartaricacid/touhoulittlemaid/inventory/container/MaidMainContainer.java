@@ -12,8 +12,8 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
@@ -47,14 +47,14 @@ public abstract class MaidMainContainer extends AbstractMaidContainer {
         LazyOptional<IItemHandler> hand = maid.getCapability(ForgeCapabilities.ITEM_HANDLER, Direction.DOWN);
         hand.ifPresent((handler) -> addSlot(new SlotItemHandler(handler, 0, 87, 77) {
             @Override
-            @OnlyIn(Dist.CLIENT)
+            @Environment(EnvType.CLIENT)
             public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
                 return Pair.of(BLOCK_ATLAS, EMPTY_MAINHAND_SLOT);
             }
         }));
         hand.ifPresent((handler) -> addSlot(new SlotItemHandler(handler, 1, 121, 77) {
             @Override
-            @OnlyIn(Dist.CLIENT)
+            @Environment(EnvType.CLIENT)
             public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
                 return Pair.of(BLOCK_ATLAS, EMPTY_ARMOR_SLOT_SHIELD);
             }
@@ -86,7 +86,7 @@ public abstract class MaidMainContainer extends AbstractMaidContainer {
                         }
 
                         @Override
-                        @OnlyIn(Dist.CLIENT)
+                        @Environment(EnvType.CLIENT)
                         public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
                             return Pair.of(BLOCK_ATLAS, TEXTURE_EMPTY_SLOTS[EquipmentSlot.getIndex()]);
                         }

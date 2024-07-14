@@ -2,6 +2,8 @@ package com.github.tartaricacid.touhoulittlemaid.entity.item;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.world.data.MaidWorldData;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelper;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -20,9 +22,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -58,7 +57,7 @@ public class EntityTombstone extends Entity {
         Ingredient ntrItem = EntityMaid.getNtrItem();
         // NTR 工具可以收回墓碑
         if (player.getUUID().equals(this.ownerId) || ntrItem.test(itemInHand)) {
-            for (int i = 0; i < this.items.getSlots(); i++) {
+            for (int i = 0; i < this.items.getSlots().size(); i++) {
                 int size = this.items.getSlotLimit(i);
                 ItemStack extractItem = this.items.extractItem(i, size, false);
                 ItemHandlerHelper.giveItemToPlayer(player, extractItem);

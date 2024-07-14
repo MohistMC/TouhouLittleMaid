@@ -5,8 +5,8 @@ import com.github.tartaricacid.touhoulittlemaid.client.gui.entity.maid.CheckSche
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -34,7 +34,7 @@ public class CheckSchedulePosMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void onHandle(CheckSchedulePosMessage message) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) {

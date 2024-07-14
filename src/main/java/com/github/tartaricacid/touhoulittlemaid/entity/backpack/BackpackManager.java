@@ -12,8 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Map;
@@ -22,7 +22,7 @@ import java.util.Optional;
 public class BackpackManager {
     private static Map<ResourceLocation, IMaidBackpack> BACKPACK_ID_MAP;
     private static Map<Item, IMaidBackpack> BACKPACK_ITEM_MAP;
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static Map<ResourceLocation, Pair<EntityModel<EntityMaid>, ResourceLocation>> BACKPACK_MODEL_MAP;
     private static IMaidBackpack EMPTY_BACKPACK;
 
@@ -53,7 +53,7 @@ public class BackpackManager {
         BACKPACK_ITEM_MAP = ImmutableMap.copyOf(BACKPACK_ITEM_MAP);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static void initClient(EntityModelSet modelSet) {
         BACKPACK_MODEL_MAP = Maps.newHashMap();
         BACKPACK_ID_MAP.forEach((id, backpack) -> BACKPACK_MODEL_MAP.put(id, Pair.of(backpack.getBackpackModel(modelSet), backpack.getBackpackTexture())));
@@ -78,7 +78,7 @@ public class BackpackManager {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static Optional<Pair<EntityModel<EntityMaid>, ResourceLocation>> findBackpackModel(ResourceLocation id) {
         Pair<EntityModel<EntityMaid>, ResourceLocation> pair = BACKPACK_MODEL_MAP.get(id);
         if (pair == null) {

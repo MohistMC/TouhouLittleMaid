@@ -8,6 +8,7 @@ import com.github.tartaricacid.touhoulittlemaid.init.InitSounds;
 import com.github.tartaricacid.touhoulittlemaid.inventory.AltarRecipeInventory;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityAltar;
 import com.github.tartaricacid.touhoulittlemaid.util.PosListData;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleEngine;
@@ -38,10 +39,8 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientBlockExtensions;
-import net.minecraftforge.items.ItemHandlerHelper;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -145,7 +144,7 @@ public class BlockAltar extends Block implements EntityBlock {
                 return Optional.empty();
             }
 
-            @OnlyIn(Dist.CLIENT)
+            @Environment(EnvType.CLIENT)
             private void crack(ClientLevel world, BlockPos pos, BlockState state, Direction side) {
                 if (state.getRenderShape() != RenderShape.INVISIBLE) {
                     int posX = pos.getX();

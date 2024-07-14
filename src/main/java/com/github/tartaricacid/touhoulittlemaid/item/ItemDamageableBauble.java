@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ItemDamageableBauble extends Item {
     public ItemDamageableBauble(int durability) {
-        super((new Properties()).durability(durability).setNoRepair());
+        super((new Properties()).durability(durability) /*.setNoRepair()*/); // TODO forge api
     }
 
     @Override

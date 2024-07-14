@@ -16,7 +16,7 @@ public class MaidAwaitTask extends Behavior<EntityMaid> {
     @Override
     protected void start(ServerLevel worldIn, EntityMaid maid, long gameTimeIn) {
         Brain<?> brain = maid.getBrain();
-        if (maid.isMaidInSittingPose() || maid.isPassenger()) {
+        if (maid.isInSittingPose() || maid.isPassenger()) {
             brain.eraseMemory(MemoryModuleType.PATH);
             brain.eraseMemory(MemoryModuleType.WALK_TARGET);
             brain.setActiveActivityIfPossible(Activity.RIDE);

@@ -2,8 +2,8 @@ package com.github.tartaricacid.touhoulittlemaid.client.gui.widget.button;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.StateSwitchingButton;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import java.util.function.BiConsumer;
 
@@ -31,7 +31,7 @@ public class WirelessIOButton extends StateSwitchingButton {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public interface ITooltip {
         void onTooltip(GuiGraphics graphics, int x, int y);
     }

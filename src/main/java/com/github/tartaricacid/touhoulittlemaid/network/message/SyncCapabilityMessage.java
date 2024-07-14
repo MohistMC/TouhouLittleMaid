@@ -4,8 +4,8 @@ import com.github.tartaricacid.touhoulittlemaid.capability.MaidNumCapabilityProv
 import com.github.tartaricacid.touhoulittlemaid.capability.PowerCapabilityProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -36,7 +36,7 @@ public class SyncCapabilityMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void handleCapability(SyncCapabilityMessage message) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.player == null) {

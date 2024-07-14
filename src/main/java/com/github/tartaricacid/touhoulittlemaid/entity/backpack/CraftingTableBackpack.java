@@ -20,8 +20,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.jetbrains.annotations.Nullable;
 
 public class CraftingTableBackpack extends IMaidBackpack {
@@ -69,21 +69,21 @@ public class CraftingTableBackpack extends IMaidBackpack {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public void offsetBackpackItem(PoseStack poseStack) {
         poseStack.translate(0, 0.625, 0.25);
     }
 
     @Nullable
     @Override
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public EntityModel<EntityMaid> getBackpackModel(EntityModelSet modelSet) {
         return new CraftingTableBackpackModel(modelSet.bakeLayer(CraftingTableBackpackModel.LAYER));
     }
 
     @Nullable
     @Override
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public ResourceLocation getBackpackTexture() {
         return new ResourceLocation(TouhouLittleMaid.MOD_ID, "textures/entity/crafting_table_backpack.png");
     }

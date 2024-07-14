@@ -7,8 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.List;
@@ -54,7 +54,7 @@ public class FoxScrollMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void onHandle(FoxScrollMessage message) {
         Minecraft.getInstance().setScreen(new FoxScrollScreen(message.data));
     }

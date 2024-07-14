@@ -5,8 +5,8 @@ import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityChair;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -34,7 +34,7 @@ public class OpenChairGuiMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void handleOpenGui(OpenChairGuiMessage message) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null) {

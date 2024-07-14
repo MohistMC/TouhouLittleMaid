@@ -1,6 +1,5 @@
 package com.github.tartaricacid.touhoulittlemaid.entity.ai.brain;
 
-import com.github.tartaricacid.touhoulittlemaid.api.task.IMaidTask;
 import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.task.*;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.init.InitEntities;
@@ -101,8 +100,7 @@ public final class MaidBrain {
 
     private static void registerWorkGoals(Brain<EntityMaid> brain, EntityMaid maid) {
         Pair<Integer, BehaviorControl<? super EntityMaid>> updateActivity = Pair.of(99, new MaidUpdateActivityFromSchedule());
-        IMaidTask task = maid.getTask();
-        List<Pair<Integer, BehaviorControl<? super EntityMaid>>> pairMaidList = task.createBrainTasks(maid);
+        List<Pair<Integer, BehaviorControl<? super EntityMaid>>> pairMaidList = maid.getTask().createBrainTasks(maid);
         if (pairMaidList.isEmpty()) {
             pairMaidList = Lists.newArrayList(updateActivity);
         } else {
@@ -110,9 +108,7 @@ public final class MaidBrain {
         }
         pairMaidList.add(Pair.of(6, new MaidBegTask()));
         pairMaidList.add(Pair.of(7, new MaidWorkMealTask()));
-        if (task.enableLookAndRandomWalk(maid)) {
-            pairMaidList.add(Pair.of(20, getLookAndRandomWalk()));
-        }
+        pairMaidList.add(Pair.of(20, getLookAndRandomWalk()));
         brain.addActivity(Activity.WORK, ImmutableList.copyOf(pairMaidList));
     }
 

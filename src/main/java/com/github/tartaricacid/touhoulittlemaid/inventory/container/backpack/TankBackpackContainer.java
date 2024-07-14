@@ -11,8 +11,8 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.items.IItemHandler;
@@ -66,7 +66,7 @@ public class TankBackpackContainer extends MaidMainContainer {
         }
 
         @Override
-        @OnlyIn(Dist.CLIENT)
+        @Environment(EnvType.CLIENT)
         public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
             return Pair.of(BLOCK_ATLAS, INPUT_SLOT);
         }
@@ -83,7 +83,7 @@ public class TankBackpackContainer extends MaidMainContainer {
         }
 
         @Override
-        @OnlyIn(Dist.CLIENT)
+        @Environment(EnvType.CLIENT)
         public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
             return Pair.of(BLOCK_ATLAS, OUTPUT_SLOT);
         }

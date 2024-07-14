@@ -29,10 +29,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -60,7 +58,6 @@ public class ItemChair extends Item {
         return stack;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static void fillItemCategory(CreativeModeTab.Output items) {
         for (String key : CustomPackLoader.CHAIR_MODELS.getModelIdSet()) {
             float height = CustomPackLoader.CHAIR_MODELS.getModelMountedYOffset(key);
@@ -70,6 +67,7 @@ public class ItemChair extends Item {
         }
     }
 
+    /*
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -80,6 +78,7 @@ public class ItemChair extends Item {
             }
         });
     }
+     */
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
@@ -124,20 +123,19 @@ public class ItemChair extends Item {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public Component getName(ItemStack stack) {
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            ItemChair.Data data = getData(stack);
-            if (CustomPackLoader.CHAIR_MODELS.getInfo(data.getModelId()).isPresent()) {
-                String name = CustomPackLoader.CHAIR_MODELS.getInfo(data.getModelId()).get().getName();
-                return ParseI18n.parse(name);
-            }
+        ItemChair.Data data = getData(stack);
+        if (CustomPackLoader.CHAIR_MODELS.getInfo(data.getModelId()).isPresent()) {
+            String name = CustomPackLoader.CHAIR_MODELS.getInfo(data.getModelId()).get().getName();
+            return ParseI18n.parse(name);
         }
+
         return super.getName(stack);
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(Component.translatable("tooltips.touhou_little_maid.chair.place.desc").withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("tooltips.touhou_little_maid.chair.destroy.desc").withStyle(ChatFormatting.GRAY));

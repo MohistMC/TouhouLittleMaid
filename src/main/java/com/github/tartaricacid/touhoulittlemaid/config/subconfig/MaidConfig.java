@@ -1,42 +1,41 @@
 package com.github.tartaricacid.touhoulittlemaid.config.subconfig;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
+import io.github.fabricators_of_create.porting_lib.config.ModConfigSpec;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.util.List;
 
-import static com.github.tartaricacid.touhoulittlemaid.util.ItemsUtil.getItemId;
-
 public final class MaidConfig {
     public static final String TAG_PREFIX = "#";
-    public static ForgeConfigSpec.ConfigValue<String> MAID_TAMED_ITEM;
-    public static ForgeConfigSpec.ConfigValue<String> MAID_TEMPTATION_ITEM;
-    public static ForgeConfigSpec.ConfigValue<String> MAID_NTR_ITEM;
-    public static ForgeConfigSpec.IntValue MAID_WORK_RANGE;
-    public static ForgeConfigSpec.IntValue MAID_IDLE_RANGE;
-    public static ForgeConfigSpec.IntValue MAID_SLEEP_RANGE;
-    public static ForgeConfigSpec.IntValue MAID_NON_HOME_RANGE;
-    public static ForgeConfigSpec.IntValue FEED_ANIMAL_MAX_NUMBER;
-    public static ForgeConfigSpec.BooleanValue MAID_CHANGE_MODEL;
-    public static ForgeConfigSpec.BooleanValue MAID_GOMOKU_OWNER_LIMIT;
-    public static ForgeConfigSpec.IntValue OWNER_MAX_MAID_NUM;
-    public static ForgeConfigSpec.DoubleValue REPLACE_ALLAY_PERCENT;
+    public static ModConfigSpec.ConfigValue<String> MAID_TAMED_ITEM;
+    public static ModConfigSpec.ConfigValue<String> MAID_TEMPTATION_ITEM;
+    public static ModConfigSpec.ConfigValue<String> MAID_NTR_ITEM;
+    public static ModConfigSpec.IntValue MAID_WORK_RANGE;
+    public static ModConfigSpec.IntValue MAID_IDLE_RANGE;
+    public static ModConfigSpec.IntValue MAID_SLEEP_RANGE;
+    public static ModConfigSpec.IntValue MAID_NON_HOME_RANGE;
+    public static ModConfigSpec.IntValue FEED_ANIMAL_MAX_NUMBER;
+    public static ModConfigSpec.BooleanValue MAID_CHANGE_MODEL;
+    public static ModConfigSpec.BooleanValue MAID_GOMOKU_OWNER_LIMIT;
+    public static ModConfigSpec.IntValue OWNER_MAX_MAID_NUM;
 
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_BACKPACK_BLACKLIST;
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_ATTACK_IGNORE;
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_RANGED_ATTACK_IGNORE;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_BACKPACK_BLACKLIST;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_ATTACK_IGNORE;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_RANGED_ATTACK_IGNORE;
 
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_WORK_MEALS_BLOCK_LIST;
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_HOME_MEALS_BLOCK_LIST;
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_HEAL_MEALS_BLOCK_LIST;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_WORK_MEALS_BLOCK_LIST;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_HOME_MEALS_BLOCK_LIST;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_HEAL_MEALS_BLOCK_LIST;
 
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_WORK_MEALS_BLOCK_LIST_REGEX;
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_HOME_MEALS_BLOCK_LIST_REGEX;
-    public static ForgeConfigSpec.ConfigValue<List<String>> MAID_HEAL_MEALS_BLOCK_LIST_REGEX;
-    public static ForgeConfigSpec.ConfigValue<List<List<String>>> MAID_EATEN_RETURN_CONTAINER_LIST;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_WORK_MEALS_BLOCK_LIST_REGEX;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_HOME_MEALS_BLOCK_LIST_REGEX;
+    public static ModConfigSpec.ConfigValue<List<String>> MAID_HEAL_MEALS_BLOCK_LIST_REGEX;
 
-    public static void init(ForgeConfigSpec.Builder builder) {
+    public static void init(ModConfigSpec.Builder builder) {
         builder.push("maid");
 
         builder.comment("The item that can tamed maid", "Use the registered name of the item directly or write tag name with # as prefix");
@@ -81,9 +80,6 @@ public final class MaidConfig {
         builder.comment("The entity that the maid will not hurt when in ranged attack");
         MAID_RANGED_ATTACK_IGNORE = builder.define("MaidRangedAttackIgnore", Lists.newArrayList());
 
-        builder.comment("Percentage chance of replace Allays spawn in pillager outposts with Maids");
-        REPLACE_ALLAY_PERCENT = builder.defineInRange("ReplaceAllayPercent", 0.2, 0, 1);
-
         builder.comment("These items cannot be used as a maid's work meals");
         MAID_WORK_MEALS_BLOCK_LIST = builder.define("MaidWorkMealsBlockList", Lists.newArrayList(
                 getItemId(Items.PUFFERFISH),
@@ -122,9 +118,12 @@ public final class MaidConfig {
         MAID_HEAL_MEALS_BLOCK_LIST_REGEX = builder.define("MaidHealMealsBlockListRegEx", Lists.newArrayList(
         ));
 
-        builder.comment("These entries configure the container returned after a maid has eaten", "Eg: [\"minecraft:beetroot_soup\", \"minecraft:bowl\"]");
-        MAID_EATEN_RETURN_CONTAINER_LIST = builder.define("MaidEatenReturnContainerList", Lists.newArrayList());
-
         builder.pop();
+    }
+
+    private static String getItemId(Item item) {
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey(item);
+        Preconditions.checkNotNull(key);
+        return key.toString();
     }
 }

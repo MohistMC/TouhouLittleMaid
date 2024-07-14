@@ -5,13 +5,13 @@ import com.github.tartaricacid.touhoulittlemaid.inventory.container.MaidConfigCo
 import com.github.tartaricacid.touhoulittlemaid.inventory.container.PicnicBasketContainer;
 import com.github.tartaricacid.touhoulittlemaid.inventory.container.WirelessIOContainer;
 import com.github.tartaricacid.touhoulittlemaid.inventory.container.backpack.*;
+import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
+import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public final class InitContainer {
-    public static final DeferredRegister<MenuType<?>> CONTAINER_TYPE = DeferredRegister.create(ForgeRegistries.MENU_TYPES, TouhouLittleMaid.MOD_ID);
+    public static final LazyRegistrar<MenuType<?>> CONTAINER_TYPE = LazyRegistrar.create(BuiltInRegistries.MENU, TouhouLittleMaid.MOD_ID);
 
     public static final RegistryObject<MenuType<EmptyBackpackContainer>> MAID_EMPTY_BACKPACK_CONTAINER = CONTAINER_TYPE.register("maid_empty_backpack_container", () -> EmptyBackpackContainer.TYPE);
     public static final RegistryObject<MenuType<SmallBackpackContainer>> MAID_SMALL_BACKPACK_CONTAINER = CONTAINER_TYPE.register("maid_small_backpack_container", () -> SmallBackpackContainer.TYPE);

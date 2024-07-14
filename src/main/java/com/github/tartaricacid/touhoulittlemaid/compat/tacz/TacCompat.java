@@ -17,8 +17,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModList;
 
@@ -56,7 +56,7 @@ public class TacCompat {
         return null;
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static boolean onSwingGun(IMaid maid, @Nullable ModelRendererWrapper armLeft, @Nullable ModelRendererWrapper armRight) {
         if (INSTALLED) {
             return GunBaseAnimation.onSwingGun(maid, armLeft, armRight);
@@ -64,21 +64,21 @@ public class TacCompat {
         return false;
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static void addItemTranslate(PoseStack matrixStack, ItemStack itemStack, boolean isLeft) {
         if (INSTALLED) {
             GunMaidRender.addItemTranslate(matrixStack, itemStack, isLeft);
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static void renderBackGun(PoseStack matrixStack, MultiBufferSource bufferIn, int packedLightIn, ItemStack stack, IMaid maid) {
         if (INSTALLED) {
             GunMaidRender.renderBackGun(matrixStack, bufferIn, packedLightIn, stack, maid);
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static void renderBackGun(ItemStack offhandItem, GeoModel geoModel, IMaid maid, PoseStack poseStack, MultiBufferSource bufferIn, int packedLight) {
         if (INSTALLED && isGun(offhandItem)) {
             poseStack.pushPose();
@@ -87,7 +87,7 @@ public class TacCompat {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     @Nullable
     public static PlayState playGunMainAnimation(IMaid maid, AnimationEvent<GeckoMaidEntity> event, String animationName, ILoopType loopType) {
         if (INSTALLED && isGun(maid.asEntity().getMainHandItem())) {
@@ -96,7 +96,7 @@ public class TacCompat {
         return null;
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     @Nullable
     public static PlayState playGunHoldAnimation(ItemStack mainHandItem, AnimationEvent<GeckoMaidEntity> event) {
         if (INSTALLED && isGun(mainHandItem)) {

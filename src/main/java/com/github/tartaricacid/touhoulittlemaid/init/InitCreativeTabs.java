@@ -4,6 +4,8 @@ import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
 import com.github.tartaricacid.touhoulittlemaid.block.BlockGarageKit;
 import com.github.tartaricacid.touhoulittlemaid.item.ItemChair;
 import com.github.tartaricacid.touhoulittlemaid.item.ItemEntityPlaceholder;
+import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
+import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -12,17 +14,11 @@ import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
-import vazkii.patchouli.common.item.ItemModBook;
 
 import static com.github.tartaricacid.touhoulittlemaid.init.InitItems.*;
 
 public class InitCreativeTabs {
-    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TouhouLittleMaid.MOD_ID);
+    public static final LazyRegistrar<CreativeModeTab> TABS = LazyRegistrar.create(Registries.CREATIVE_MODE_TAB, TouhouLittleMaid.MOD_ID);
 
     public static RegistryObject<CreativeModeTab> MAIN_TAB = TABS.register("main", () -> CreativeModeTab.builder()
             .title(Component.translatable("item_group.touhou_little_maid.main"))
@@ -92,18 +88,14 @@ public class InitCreativeTabs {
             .title(Component.translatable("item_group.touhou_little_maid.chair"))
             .icon(() -> InitItems.CHAIR.get().getDefaultInstance())
             .displayItems((par, output) -> {
-                if (FMLEnvironment.dist == Dist.CLIENT) {
-                    ItemChair.fillItemCategory(output);
-                }
+                ItemChair.fillItemCategory(output);
             }).build());
 
     public static RegistryObject<CreativeModeTab> CHAIR_TAB = TABS.register("garage_kit", () -> CreativeModeTab.builder()
             .title(Component.translatable("item_group.touhou_little_maid.garage_kit"))
             .icon(() -> InitItems.GARAGE_KIT.get().getDefaultInstance())
             .displayItems((par, output) -> {
-                if (FMLEnvironment.dist == Dist.CLIENT) {
-                    BlockGarageKit.fillItemCategory(output);
-                }
+                BlockGarageKit.fillItemCategory(output);
             }).build());
 
     private static ItemStack getEnchantmentBook(RegistryObject<Enchantment> registryObject) {

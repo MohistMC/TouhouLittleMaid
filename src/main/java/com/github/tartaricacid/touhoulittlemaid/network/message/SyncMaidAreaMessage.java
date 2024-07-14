@@ -5,8 +5,8 @@ import com.github.tartaricacid.touhoulittlemaid.entity.passive.SchedulePos;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -47,7 +47,7 @@ public class SyncMaidAreaMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void writePos(SyncMaidAreaMessage message) {
         MaidAreaRenderEvent.addSchedulePos(message.id, message.schedulePos);
     }

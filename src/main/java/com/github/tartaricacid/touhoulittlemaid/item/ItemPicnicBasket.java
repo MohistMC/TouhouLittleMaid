@@ -4,6 +4,8 @@ import com.github.tartaricacid.touhoulittlemaid.client.renderer.tileentity.Picni
 import com.github.tartaricacid.touhoulittlemaid.init.InitItems;
 import com.github.tartaricacid.touhoulittlemaid.inventory.container.PicnicBasketContainer;
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemContainerTooltip;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
+import io.github.fabricators_of_create.porting_lib.util.NetworkHooks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.nbt.CompoundTag;
@@ -21,13 +23,9 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class ItemPicnicBasket extends BlockItem implements MenuProvider {
     private static final int PICNIC_BASKET_SIZE = 9;
@@ -69,6 +67,8 @@ public class ItemPicnicBasket extends BlockItem implements MenuProvider {
         return Optional.of(new ItemContainerTooltip(container));
     }
 
+    // TODO forge api
+    /*
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -79,6 +79,7 @@ public class ItemPicnicBasket extends BlockItem implements MenuProvider {
             }
         });
     }
+     */
 
     @Override
     public String getDescriptionId() {

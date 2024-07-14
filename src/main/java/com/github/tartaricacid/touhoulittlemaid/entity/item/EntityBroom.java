@@ -21,8 +21,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -50,22 +50,22 @@ public class EntityBroom extends AbstractEntityFromItem implements OwnableEntity
         this(TYPE, worldIn);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static boolean keyForward() {
         return Minecraft.getInstance().options.keyUp.isDown();
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static boolean keyBack() {
         return Minecraft.getInstance().options.keyDown.isDown();
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static boolean keyLeft() {
         return Minecraft.getInstance().options.keyLeft.isDown();
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static boolean keyRight() {
         return Minecraft.getInstance().options.keyRight.isDown();
     }
@@ -138,6 +138,7 @@ public class EntityBroom extends AbstractEntityFromItem implements OwnableEntity
 
     private boolean canMaidRide(EntityMaid maid) {
         if (maid.canBrainMoving() && !maid.isVehicle() && EntitySelector.pushableBy(this).test(maid)) {
+            System.out.println("1");
             UUID maidOwnerUUID = maid.getOwnerUUID();
             UUID broomOwnerUUID = this.getOwnerUUID();
             if (maidOwnerUUID == null || broomOwnerUUID == null) {
@@ -145,6 +146,7 @@ public class EntityBroom extends AbstractEntityFromItem implements OwnableEntity
             }
             return maidOwnerUUID.equals(broomOwnerUUID);
         }
+        System.out.println(maid.canBrainMoving() + " " + !maid.isVehicle() + EntitySelector.pushableBy(this).test(maid));
         return false;
     }
 

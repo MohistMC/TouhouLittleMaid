@@ -12,6 +12,7 @@ import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.TerrainParticle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
@@ -34,10 +35,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientBlockExtensions;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -52,12 +51,11 @@ public class BlockGarageKit extends Block implements EntityBlock {
         super(BlockBehaviour.Properties.of().sound(SoundType.MUD).strength(1, 2).noOcclusion());
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static void fillItemCategory(CreativeModeTab.Output items) {
         for (String modelId : CustomPackLoader.MAID_MODELS.getModelIdSet()) {
             ItemStack stack = new ItemStack(InitBlocks.GARAGE_KIT.get());
             CompoundTag data = stack.getOrCreateTagElement(ENTITY_INFO);
-            data.putString("id", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(InitEntities.MAID.get())).toString());
+            data.putString("id", Objects.requireNonNull(BuiltInRegistries.ENTITY_TYPE.getKey(InitEntities.MAID.get())).toString());
             data.putString(EntityMaid.MODEL_ID_TAG, modelId);
             items.accept(stack);
         }
@@ -103,7 +101,7 @@ public class BlockGarageKit extends Block implements EntityBlock {
         }
         TileEntityGarageKit garageKit = (TileEntityGarageKit) tile;
         EntityType<?> type = ((SpawnEggItem) stack.getItem()).getType(stack.getTag());
-        ResourceLocation key = ForgeRegistries.ENTITY_TYPES.getKey(type);
+        ResourceLocation key = BuiltInRegistries.ENTITY_TYPE.getKey(type);
         if (key == null) {
             return InteractionResult.PASS;
         }
@@ -123,6 +121,8 @@ public class BlockGarageKit extends Block implements EntityBlock {
         return InteractionResult.SUCCESS;
     }
 
+    // TODO forge api
+    /*
     @Override
     public void initializeClient(Consumer<IClientBlockExtensions> consumer) {
         consumer.accept(new IClientBlockExtensions() {
@@ -143,7 +143,7 @@ public class BlockGarageKit extends Block implements EntityBlock {
                 return true;
             }
 
-            @OnlyIn(Dist.CLIENT)
+            @Environment(EnvType.CLIENT)
             private void crack(ClientLevel world, BlockPos pos, BlockState state, Direction side) {
                 if (state.getRenderShape() != RenderShape.INVISIBLE) {
                     int posX = pos.getX();
@@ -177,6 +177,7 @@ public class BlockGarageKit extends Block implements EntityBlock {
             }
         });
     }
+    */
 
     private ItemStack getGarageKitFromWorld(BlockGetter world, BlockPos pos) {
         ItemStack stack = new ItemStack(InitBlocks.GARAGE_KIT.get());

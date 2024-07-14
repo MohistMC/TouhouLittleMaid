@@ -1,27 +1,27 @@
 package com.github.tartaricacid.touhoulittlemaid.config.subconfig;
 
 import com.google.common.collect.Lists;
+import io.github.fabricators_of_create.porting_lib.config.ModConfigSpec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.util.List;
 
 public final class MiscConfig {
-    public static ForgeConfigSpec.DoubleValue MAID_FAIRY_POWER_POINT;
-    public static ForgeConfigSpec.IntValue MAID_FAIRY_SPAWN_PROBABILITY;
-    public static ForgeConfigSpec.ConfigValue<List<? extends String>> MAID_FAIRY_BLACKLIST_BIOME;
-    public static ForgeConfigSpec.ConfigValue<List<? extends String>> MAID_FAIRY_BLACKLIST_DIMENSION;
-    public static ForgeConfigSpec.DoubleValue PLAYER_DEATH_LOSS_POWER_POINT;
-    public static ForgeConfigSpec.BooleanValue GIVE_SMART_SLAB;
-    public static ForgeConfigSpec.BooleanValue GIVE_PATCHOULI_BOOK;
-    public static ForgeConfigSpec.DoubleValue SHRINE_LAMP_EFFECT_COST;
-    public static ForgeConfigSpec.DoubleValue SHRINE_LAMP_MAX_STORAGE;
-    public static ForgeConfigSpec.IntValue SHRINE_LAMP_MAX_RANGE;
-    public static ForgeConfigSpec.BooleanValue CLOSE_OPTIFINE_WARNING;
+    public static ModConfigSpec.DoubleValue MAID_FAIRY_POWER_POINT;
+    public static ModConfigSpec.IntValue MAID_FAIRY_SPAWN_PROBABILITY;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> MAID_FAIRY_BLACKLIST_BIOME;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> MAID_FAIRY_BLACKLIST_DIMENSION;
+    public static ModConfigSpec.DoubleValue PLAYER_DEATH_LOSS_POWER_POINT;
+    public static ModConfigSpec.BooleanValue GIVE_SMART_SLAB;
+    public static ModConfigSpec.BooleanValue GIVE_PATCHOULI_BOOK;
+    public static ModConfigSpec.DoubleValue SHRINE_LAMP_EFFECT_COST;
+    public static ModConfigSpec.DoubleValue SHRINE_LAMP_MAX_STORAGE;
+    public static ModConfigSpec.IntValue SHRINE_LAMP_MAX_RANGE;
+    public static ModConfigSpec.BooleanValue CLOSE_OPTIFINE_WARNING;
 
-    public static void init(ForgeConfigSpec.Builder builder) {
+    public static void init(ModConfigSpec.Builder builder) {
         builder.push("misc");
 
         builder.comment("Maid fairy's power point");

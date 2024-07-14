@@ -3,11 +3,8 @@ package com.github.tartaricacid.touhoulittlemaid.network.message;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityPowerPoint;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.network.NetworkEvent;
-
-import java.util.function.Supplier;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 public class BeaconAbsorbMessage {
     private final float x;
@@ -39,7 +36,7 @@ public class BeaconAbsorbMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void spawnParticle(BeaconAbsorbMessage message) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level != null) {

@@ -1,14 +1,13 @@
 package com.github.tartaricacid.touhoulittlemaid.init;
 
 import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
+import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
+import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-
 public final class InitSounds {
-    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, TouhouLittleMaid.MOD_ID);
+    public static final LazyRegistrar<SoundEvent> SOUNDS = LazyRegistrar.create(BuiltInRegistries.SOUND_EVENT, TouhouLittleMaid.MOD_ID);
 
     public static final RegistryObject<SoundEvent> MAID_IDLE = registerSound("maid.mode.idle");
     public static final RegistryObject<SoundEvent> MAID_ATTACK = registerSound("maid.mode.attack");

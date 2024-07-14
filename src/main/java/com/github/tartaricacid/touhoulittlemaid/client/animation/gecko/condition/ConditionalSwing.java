@@ -2,14 +2,13 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.conditio
 
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.google.common.collect.Lists;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.tags.ITagManager;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -50,7 +49,7 @@ public class ConditionalSwing {
             idTest.add(new ResourceLocation(substring));
         }
         if (name.startsWith(tagPre) && ResourceLocation.isValidResourceLocation(substring)) {
-            ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+            ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
             if (tags == null) {
                 return;
             }
@@ -86,7 +85,7 @@ public class ConditionalSwing {
             return EMPTY;
         }
 		ItemStack itemInHand = maid.asEntity().getItemInHand(hand);
-        ResourceLocation registryName = ForgeRegistries.ITEMS.getKey(itemInHand.getItem());
+        ResourceLocation registryName = BuiltInRegistries.ITEM.getKey(itemInHand.getItem());
         if (registryName == null) {
             return EMPTY;
         }

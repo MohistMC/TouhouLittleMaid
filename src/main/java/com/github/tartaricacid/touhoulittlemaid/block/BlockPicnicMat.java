@@ -8,6 +8,9 @@ import com.github.tartaricacid.touhoulittlemaid.init.InitBlocks;
 import com.github.tartaricacid.touhoulittlemaid.init.InitItems;
 import com.github.tartaricacid.touhoulittlemaid.item.ItemPicnicBasket;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityPicnicMat;
+import io.github.fabricators_of_create.porting_lib.blocks.extensions.OnExplodedBlock;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelper;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -37,13 +40,11 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class BlockPicnicMat extends Block implements EntityBlock {
+public class BlockPicnicMat extends Block implements EntityBlock, OnExplodedBlock {
     public static final EnumProperty<PicnicMatPart> PART = EnumProperty.create("part", PicnicMatPart.class);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final VoxelShape AABB = Block.box(0, 0, 0, 16, 1, 16);
@@ -142,7 +143,7 @@ public class BlockPicnicMat extends Block implements EntityBlock {
 
     private static InteractionResult takeFood(Player playerIn, TileEntityPicnicMat picnicMatCenter) {
         ItemStackHandler handler = picnicMatCenter.getHandler();
-        int size = handler.getSlots() - 1;
+        int size = handler.getSlots().size() - 1;
         for (int i = size; i >= 0; i--) {
             ItemStack stack = handler.getStackInSlot(i);
             if (!stack.isEmpty()) {
@@ -164,7 +165,6 @@ public class BlockPicnicMat extends Block implements EntityBlock {
     @Override
     public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
         handlePicnicMatRemove(world, pos, state);
-        super.onBlockExploded(state, world, pos, explosion);
     }
 
     @Nullable

@@ -32,7 +32,7 @@ public class ItemHakureiGohei extends ProjectileWeaponItem {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public ItemHakureiGohei() {
-        super((new Properties()).durability(300).setNoRepair());
+        super((new Properties()).durability(300) /*.setNoRepair()*/); // TODO Forge api
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 4, AttributeModifier.Operation.ADDITION));
         builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2, AttributeModifier.Operation.ADDITION));

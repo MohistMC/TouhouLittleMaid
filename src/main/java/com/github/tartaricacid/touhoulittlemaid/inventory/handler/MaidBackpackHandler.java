@@ -1,8 +1,8 @@
 package com.github.tartaricacid.touhoulittlemaid.inventory.handler;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 

@@ -6,8 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.concurrent.CompletableFuture;
@@ -50,7 +50,7 @@ public class SpawnParticleMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void handleSpawnParticleDelay(SpawnParticleMessage message, int delayTicks) {
         try {
             Thread.sleep(delayTicks * 50L);
@@ -60,7 +60,7 @@ public class SpawnParticleMessage {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void handleSpawnParticle(SpawnParticleMessage message) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null) {

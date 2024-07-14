@@ -3,6 +3,7 @@ package com.github.tartaricacid.touhoulittlemaid.block;
 import com.github.tartaricacid.touhoulittlemaid.init.InitBlocks;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityGarageKit;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityStatue;
+import io.github.fabricators_of_create.porting_lib.blocks.extensions.OnExplodedBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleEngine;
@@ -26,9 +27,8 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientBlockExtensions;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class BlockStatue extends Block implements EntityBlock {
+public class BlockStatue extends Block implements EntityBlock, OnExplodedBlock {
     public static final BooleanProperty IS_TINY = BooleanProperty.create("is_tiny");
 
     public BlockStatue() {
@@ -62,7 +62,6 @@ public class BlockStatue extends Block implements EntityBlock {
         if (!world.isClientSide) {
             this.getStatue(world, pos).ifPresent(statue -> this.restoreClayBlock(world, pos, statue));
         }
-        super.onBlockExploded(state, world, pos, explosion);
     }
 
     @Override
@@ -76,6 +75,8 @@ public class BlockStatue extends Block implements EntityBlock {
         return new TileEntityStatue(pos, state);
     }
 
+    // TODO forge api
+    /*
     @Override
     public void initializeClient(Consumer<IClientBlockExtensions> consumer) {
         consumer.accept(new IClientBlockExtensions() {
@@ -96,7 +97,7 @@ public class BlockStatue extends Block implements EntityBlock {
                 return true;
             }
 
-            @OnlyIn(Dist.CLIENT)
+            @Environment(EnvType.CLIENT)
             private void crack(ClientLevel world, BlockPos pos, BlockState state, Direction side) {
                 if (state.getRenderShape() != RenderShape.INVISIBLE) {
                     int posX = pos.getX();
@@ -130,6 +131,7 @@ public class BlockStatue extends Block implements EntityBlock {
             }
         });
     }
+    */
 
     @Override
     public RenderShape getRenderShape(BlockState state) {

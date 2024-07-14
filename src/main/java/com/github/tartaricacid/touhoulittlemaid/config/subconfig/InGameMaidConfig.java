@@ -2,9 +2,9 @@ package com.github.tartaricacid.touhoulittlemaid.config.subconfig;
 
 import com.github.tartaricacid.touhoulittlemaid.client.resource.CustomPackLoader;
 import com.google.gson.annotations.SerializedName;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
-@OnlyIn(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class InGameMaidConfig {
     private static final File CONFIG_FILE = Minecraft.getInstance().gameDirectory.toPath().resolve("config").resolve("touhou_little_maid").resolve("in_game_maid_config.json").toFile();
     public static InGameMaidConfig INSTANCE;

@@ -17,10 +17,10 @@ import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
-@OnlyIn(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class SlashBladeRender {
     private static final ResourceLocation RESOURCE_DEFAULT_MODEL = new ResourceLocation("slashblade", "model/blade.obj");
     private static final ResourceLocation RESOURCE_DEFAULT_TEXTURE = new ResourceLocation("slashblade", "model/blade.png");

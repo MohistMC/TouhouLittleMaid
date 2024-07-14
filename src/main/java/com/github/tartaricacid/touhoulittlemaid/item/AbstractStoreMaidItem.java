@@ -2,6 +2,7 @@ package com.github.tartaricacid.touhoulittlemaid.item;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemMaidTooltip;
+import io.github.fabricators_of_create.porting_lib.item.EntityTickListenerItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -13,7 +14,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Objects;
 import java.util.Optional;
 
-public abstract class AbstractStoreMaidItem extends Item {
+public abstract class AbstractStoreMaidItem extends Item implements EntityTickListenerItem {
     static final String MAID_INFO = "MaidInfo";
     static final String CUSTOM_NAME = "CustomName";
 
@@ -34,9 +35,6 @@ public abstract class AbstractStoreMaidItem extends Item {
 
     @Override
     public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
-        if (!entity.isCurrentlyGlowing()) {
-            entity.setGlowingTag(true);
-        }
         if (!entity.isInvulnerable()) {
             entity.setInvulnerable(true);
         }
@@ -47,7 +45,7 @@ public abstract class AbstractStoreMaidItem extends Item {
             entity.setDeltaMovement(Vec3.ZERO);
             entity.setPos(position.x, minY, position.z);
         }
-        return super.onEntityItemUpdate(stack, entity);
+        return false;
     }
 
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {

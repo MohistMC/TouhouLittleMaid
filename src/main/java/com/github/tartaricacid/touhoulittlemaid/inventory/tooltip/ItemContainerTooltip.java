@@ -1,7 +1,7 @@
 package com.github.tartaricacid.touhoulittlemaid.inventory.tooltip;
 
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
-import net.minecraftforge.items.IItemHandler;
 
-public record ItemContainerTooltip(IItemHandler handler) implements TooltipComponent {
+public record ItemContainerTooltip(ItemStackHandler handler) implements TooltipComponent {
 }

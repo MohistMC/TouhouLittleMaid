@@ -12,8 +12,8 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import javax.annotation.Nullable;
 
@@ -46,15 +46,15 @@ public abstract class IMaidBackpack {
 
     public abstract int getAvailableMaxContainerIndex();
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public abstract void offsetBackpackItem(PoseStack poseStack);
 
     @Nullable
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public abstract EntityModel<EntityMaid> getBackpackModel(EntityModelSet modelSet);
 
     @Nullable
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public abstract ResourceLocation getBackpackTexture();
 
     protected final void dropAllItems(EntityMaid maid) {

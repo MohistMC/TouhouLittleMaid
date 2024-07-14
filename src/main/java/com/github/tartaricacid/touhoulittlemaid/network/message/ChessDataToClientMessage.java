@@ -7,8 +7,8 @@ import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.concurrent.CompletableFuture;
@@ -59,7 +59,7 @@ public class ChessDataToClientMessage {
         context.setPacketHandled(true);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     private static void onHandle(ChessDataToClientMessage message) {
         Point aiPoint = MaidGomokuAI.getService(message.count).getPoint(message.chessData, message.point);
         int time = (int) (Math.random() * 1250) + 250;

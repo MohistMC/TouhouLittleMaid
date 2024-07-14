@@ -1,13 +1,11 @@
 package com.github.tartaricacid.touhoulittlemaid.item;
 
-import com.github.tartaricacid.touhoulittlemaid.client.renderer.tileentity.TileEntityEntityPlaceholderRenderer;
 import com.github.tartaricacid.touhoulittlemaid.crafting.AltarRecipe;
 import com.github.tartaricacid.touhoulittlemaid.init.InitItems;
 import com.github.tartaricacid.touhoulittlemaid.init.InitRecipes;
 import com.github.tartaricacid.touhoulittlemaid.inventory.AltarRecipeInventory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -21,15 +19,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import javax.annotation.Nullable;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Locale;
-import java.util.function.Consumer;
 
 public class ItemEntityPlaceholder extends Item {
     private static final String RECIPES_ID_TAG = "RecipeId";
@@ -56,7 +51,7 @@ public class ItemEntityPlaceholder extends Item {
         return null;
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public static void fillItemCategory(CreativeModeTab.Output items) {
         ClientLevel world = Minecraft.getInstance().level;
         if (world == null) {
@@ -69,6 +64,8 @@ public class ItemEntityPlaceholder extends Item {
         });
     }
 
+    // TODO API
+    /*
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -79,6 +76,7 @@ public class ItemEntityPlaceholder extends Item {
             }
         });
     }
+     */
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
@@ -98,7 +96,7 @@ public class ItemEntityPlaceholder extends Item {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public Component getName(ItemStack stack) {
         ResourceLocation recipeId = getRecipeId(stack);
         if (recipeId != null) {
