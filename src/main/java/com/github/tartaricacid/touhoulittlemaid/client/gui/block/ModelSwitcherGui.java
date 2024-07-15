@@ -77,17 +77,17 @@ public class ModelSwitcherGui extends Screen {
 
         this.addRenderableWidget(Button.builder(Component.translatable("gui.touhou_little_maid.button.skin"), b -> {
             ModelSwitcherModelGui modelGui = new ModelSwitcherModelGui(this.maid, info, this);
-            getMinecraft().setScreen(modelGui);
+            minecraft.setScreen(modelGui);
         }).pos(leftPos + 55, topPos + 15).size(76, 20).build());
 
         this.addRenderableWidget(new DirectButton(leftPos + 55, topPos + 38, 76, 20, info.getDirection(),
                 b -> info.setDirection(((DirectButton) b).getDirection())));
 
         this.addRenderableWidget(Button.builder(Component.translatable("selectWorld.edit.save"), b -> {
-            NetworkHandler.CHANNEL.sendToServer(new SaveSwitcherDataMessage(pos, this.infoList));
+            // NetworkHandler.CHANNEL.sendToServer(new SaveSwitcherDataMessage(pos, this.infoList)); TODO forge api
         }).pos(leftPos + 12, topPos + 135).size(121, 20).build());
 
-        this.description = new EditBox(getMinecraft().font, leftPos + 12, topPos + 65, 119, 20,
+        this.description = new EditBox(minecraft.font, leftPos + 12, topPos + 65, 119, 20,
                 Component.translatable("gui.touhou_little_maid.name_tag.edit_box"));
         this.description.setValue(info.getText());
         this.addWidget(this.description);
@@ -222,7 +222,7 @@ public class ModelSwitcherGui extends Screen {
 
     @Override
     public void onClose() {
-        NetworkHandler.CHANNEL.sendToServer(new SaveSwitcherDataMessage(pos, this.infoList));
+        // NetworkHandler.CHANNEL.sendToServer(new SaveSwitcherDataMessage(pos, this.infoList)); TODO forge api
         super.onClose();
     }
 }

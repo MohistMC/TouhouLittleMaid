@@ -9,7 +9,6 @@ import com.github.tartaricacid.touhoulittlemaid.client.gui.widget.button.MaidTab
 import com.github.tartaricacid.touhoulittlemaid.client.gui.widget.button.ScheduleButton;
 import com.github.tartaricacid.touhoulittlemaid.client.gui.widget.button.TaskButton;
 import com.github.tartaricacid.touhoulittlemaid.client.resource.CustomPackLoader;
-import com.github.tartaricacid.touhoulittlemaid.compat.ipn.SortButtonScreen;
 import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.MaidGomokuAI;
 import com.github.tartaricacid.touhoulittlemaid.entity.favorability.FavorabilityManager;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
@@ -202,8 +201,8 @@ public abstract class AbstractMaidContainerGui<T extends AbstractMaidContainer> 
     }
 
     private void addStateButton() {
-        skin = new ImageButton(leftPos + 62, topPos + 14, 9, 9, 72, 43, 10, BUTTON, (b) -> getMinecraft().setScreen(new MaidModelGui(maid)));
-        sound = new ImageButton(leftPos + 52, topPos + 14, 9, 9, 144, 43, 10, BUTTON, (b) -> getMinecraft().setScreen(new MaidSoundPackGui(maid)));
+        skin = new ImageButton(leftPos + 62, topPos + 14, 9, 9, 72, 43, 10, BUTTON, (b) -> minecraft.setScreen(new MaidModelGui(maid)));
+        sound = new ImageButton(leftPos + 52, topPos + 14, 9, 9, 144, 43, 10, BUTTON, (b) -> minecraft.setScreen(new MaidSoundPackGui(maid)));
         info = new ImageButton(leftPos + 8, topPos + 14, 9, 9, 72, 65, 10, BUTTON, NO_ACTION);
         this.addRenderableWidget(skin);
         this.addRenderableWidget(sound);
@@ -303,7 +302,7 @@ public abstract class AbstractMaidContainerGui<T extends AbstractMaidContainer> 
             }
             desc.add(prefix.append(condition));
         }
-        if (this.getMinecraft().options.advancedItemTooltips) {
+        if (this.minecraft.options.advancedItemTooltips) {
             desc.add(CommonComponents.SPACE);
             desc.add(Component.translatable("task.touhou_little_maid.advanced.id", maidTask.getUid().getPath()).withStyle(ChatFormatting.DARK_GRAY));
         }
@@ -442,13 +441,13 @@ public abstract class AbstractMaidContainerGui<T extends AbstractMaidContainer> 
     private void renderTaskButtonInfo(GuiGraphics graphics, int x, int y) {
         this.renderables.stream().filter(b -> b instanceof TaskButton).forEach(b -> {
             if (((TaskButton) b).isHovered()) {
-                ((TaskButton) b).renderToolTip(graphics, getMinecraft(), x, y);
+                ((TaskButton) b).renderToolTip(graphics, minecraft, x, y);
             }
         });
     }
 
     private void drawMaidCharacter(GuiGraphics graphics, int x, int y) {
-        double scale = getMinecraft().getWindow().getGuiScale();
+        double scale = minecraft.getWindow().getGuiScale();
         RenderSystem.enableScissor((int) ((leftPos + 6) * scale), (int) ((topPos + 107 + 42) * scale),
                 (int) (67 * scale), (int) (95 * scale));
         InventoryScreen.renderEntityInInventoryFollowsMouse(graphics, leftPos + 40, topPos + 100, 40, (leftPos + 40) - x, (topPos + 70 - 20) - y, maid);

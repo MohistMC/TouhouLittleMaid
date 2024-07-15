@@ -1,16 +1,13 @@
 package com.github.tartaricacid.touhoulittlemaid.client.event;
 
-import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
 import com.github.tartaricacid.touhoulittlemaid.client.gui.mod.OptifineScreen;
 import com.github.tartaricacid.touhoulittlemaid.config.subconfig.MiscConfig;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = TouhouLittleMaid.MOD_ID)
+@Environment(EnvType.CLIENT)
 public final class ShowOptifineScreen {
     private static boolean optifinePresent = false;
     private static boolean firstTitleScreenShown = false;

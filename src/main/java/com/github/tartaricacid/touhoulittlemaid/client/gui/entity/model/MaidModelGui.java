@@ -41,7 +41,7 @@ public class MaidModelGui extends AbstractModelGui<EntityMaid, MaidModelInfo> {
 
     @Override
     protected void drawRightEntity(GuiGraphics graphics, int posX, int posY, MaidModelInfo modelItem) {
-        Level world = getMinecraft().level;
+        Level world = minecraft.level;
         if (world == null) {
             return;
         }
@@ -83,10 +83,10 @@ public class MaidModelGui extends AbstractModelGui<EntityMaid, MaidModelInfo> {
     @Override
     protected void notifyModelChange(EntityMaid maid, MaidModelInfo info) {
         if (info.getEasterEgg() == null) {
-            NetworkHandler.CHANNEL.sendToServer(new MaidModelMessage(maid.getId(), info.getModelId()));
+            // NetworkHandler.CHANNEL.sendToServer(new MaidModelMessage(maid.getId(), info.getModelId())); TODO forge api
             String useSoundPackId = info.getUseSoundPackId();
             if (StringUtils.isNotBlank(useSoundPackId)) {
-                NetworkHandler.CHANNEL.sendToServer(new SetMaidSoundIdMessage(maid.getId(), useSoundPackId));
+                // NetworkHandler.CHANNEL.sendToServer(new SetMaidSoundIdMessage(maid.getId(), useSoundPackId)); TODO forge api
             }
             // 切换模型时，重置手部动作
             maid.handItemsForAnimation[0] = ItemStack.EMPTY;

@@ -15,9 +15,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import org.anti_ad.mc.ipn.api.IPNIgnore;
 
-@IPNIgnore
 public class WirelessIOContainerGui extends AbstractContainerScreen<WirelessIOContainer> {
     private static final ResourceLocation MAIN = new ResourceLocation(TouhouLittleMaid.MOD_ID, "textures/gui/wireless_io.png");
     private boolean isMaidToChest;
@@ -37,19 +35,19 @@ public class WirelessIOContainerGui extends AbstractContainerScreen<WirelessIOCo
         WirelessIOButton ioModeToggle = new WirelessIOButton(leftPos + 23, topPos + 34, 18, 18, isMaidToChest,
                 (x, y) -> {
                     isMaidToChest = !isMaidToChest;
-                    NetworkHandler.CHANNEL.sendToServer(new WirelessIOGuiMessage(isMaidToChest, isBlacklist));
+                    // NetworkHandler.CHANNEL.sendToServer(new WirelessIOGuiMessage(isMaidToChest, isBlacklist)); TODO forge api
                 }, (m, x, y) -> m.renderTooltip(font, Component.translatable("gui.touhou_little_maid.wireless_io.io_mode"), x, y));
 
         ioModeToggle.initTextureValues(194, 32, -18, 18, MAIN);
         WirelessIOButton filterModeToggle = new WirelessIOButton(leftPos + 136, topPos + 26, 16, 16, isBlacklist,
                 (x, y) -> {
                     isBlacklist = !isBlacklist;
-                    NetworkHandler.CHANNEL.sendToServer(new WirelessIOGuiMessage(isMaidToChest, isBlacklist));
+                    // NetworkHandler.CHANNEL.sendToServer(new WirelessIOGuiMessage(isMaidToChest, isBlacklist)); TODO forge api
                 }, (m, x, y) -> m.renderTooltip(font, Component.translatable("gui.touhou_little_maid.wireless_io.filter_mode"), x, y));
         filterModeToggle.initTextureValues(176, 0, 16, 16, MAIN);
 
         ImageButton configButton = new ImageButton(leftPos + 136, topPos + 44, 16, 16, 208, 0, 16,
-                MAIN, 256, 256, buttons -> getMinecraft().setScreen(new WirelessIOConfigSlotGui(menu.getWirelessIO())));
+                MAIN, 256, 256, buttons -> minecraft.setScreen(new WirelessIOConfigSlotGui(menu.getWirelessIO())));
         configButton.setTooltip(Tooltip.create(Component.translatable("gui.touhou_little_maid.wireless_io.config_slot")));
 
         addRenderableWidget(filterModeToggle);

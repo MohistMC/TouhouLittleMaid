@@ -33,7 +33,7 @@ public class ChairModelGui extends AbstractModelGui<EntityChair, ChairModelInfo>
 
     @Override
     protected void drawRightEntity(GuiGraphics graphics, int posX, int posY, ChairModelInfo modelItem) {
-        Level world = getMinecraft().level;
+        Level world = minecraft.level;
         if (world == null) {
             return;
         }
@@ -66,8 +66,7 @@ public class ChairModelGui extends AbstractModelGui<EntityChair, ChairModelInfo>
 
     @Override
     protected void notifyModelChange(EntityChair entity, ChairModelInfo modelInfo) {
-        NetworkHandler.CHANNEL.sendToServer(new ChairModelMessage(entity.getId(), modelInfo.getModelId(), modelInfo.getMountedYOffset(),
-                modelInfo.isTameableCanRide(), modelInfo.isNoGravity()));
+        // NetworkHandler.CHANNEL.sendToServer(new ChairModelMessage(entity.getId(), modelInfo.getModelId(), modelInfo.getMountedYOffset(), modelInfo.isTameableCanRide(), modelInfo.isNoGravity())); TODO forge api
     }
 
     @Override

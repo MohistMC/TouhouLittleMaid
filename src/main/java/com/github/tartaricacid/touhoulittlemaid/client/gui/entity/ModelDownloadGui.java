@@ -69,7 +69,7 @@ public class ModelDownloadGui extends Screen {
     private void addSearchBox() {
         String textCache = textField == null ? "" : textField.getValue();
         boolean focus = textField != null && textField.isFocused();
-        textField = new EditBox(getMinecraft().font, x + 273, y + 78, 144, 16, Component.empty());
+        textField = new EditBox(minecraft.font, x + 273, y + 78, 144, 16, Component.empty());
         textField.setTextColor(0xF3EFE0);
         textField.setFocused(focus);
         textField.setValue(textCache);
@@ -148,7 +148,7 @@ public class ModelDownloadGui extends Screen {
             i++;
         }
         this.addRenderableWidget(new FlatColorButton(x + 400, y + 2, 20, 20, Component.empty(),
-                b -> this.getMinecraft().setScreen(null)).setTooltips("gui.touhou_little_maid.skin.button.close"));
+                b -> this.minecraft.setScreen(null)).setTooltips("gui.touhou_little_maid.skin.button.close"));
         this.addRenderableWidget(Button.builder(Component.translatable("gui.touhou_little_maid.resources_download.open_folder"), b -> Util.getPlatform().openFile(CustomPackLoader.PACK_FOLDER.toFile()))
                 .pos(x + 270, y + 218).size(150, 20).build());
     }
@@ -297,10 +297,10 @@ public class ModelDownloadGui extends Screen {
 
     @Override
     public void onClose() {
-        if (this.needReload && this.getMinecraft().player != null) {
-            this.getMinecraft().gui.setTitle(Component.translatable("gui.touhou_little_maid.resources_download.need_reload.title"));
-            this.getMinecraft().gui.setSubtitle(Component.translatable("gui.touhou_little_maid.resources_download.need_reload.subtitle"));
-            this.getMinecraft().player.sendSystemMessage(Component.translatable("gui.touhou_little_maid.resources_download.need_reload.subtitle"));
+        if (this.needReload && this.minecraft.player != null) {
+            this.minecraft.gui.setTitle(Component.translatable("gui.touhou_little_maid.resources_download.need_reload.title"));
+            this.minecraft.gui.setSubtitle(Component.translatable("gui.touhou_little_maid.resources_download.need_reload.subtitle"));
+            this.minecraft.player.sendSystemMessage(Component.translatable("gui.touhou_little_maid.resources_download.need_reload.subtitle"));
         }
         super.onClose();
     }
@@ -351,11 +351,11 @@ public class ModelDownloadGui extends Screen {
     private void openPackWebsite(DownloadInfo info) {
         String website = info.getWebsite();
         if (StringUtils.isNotBlank(website)) {
-            this.getMinecraft().setScreen(new ConfirmLinkScreen(yes -> {
+            this.minecraft.setScreen(new ConfirmLinkScreen(yes -> {
                 if (yes) {
                     Util.getPlatform().openUri(website);
                 }
-                this.getMinecraft().setScreen(this);
+                this.minecraft.setScreen(this);
             }, website, false));
         }
     }
@@ -363,7 +363,7 @@ public class ModelDownloadGui extends Screen {
     private void deletePack(DownloadInfo info) {
         Set<String> deleteFiles = this.getDeleteFiles(info);
         if (info.getStatus() == DownloadStatus.DOWNLOADED || info.getStatus() == DownloadStatus.NEED_UPDATE) {
-            this.getMinecraft().setScreen(new ConfirmScreen(yes -> this.deleteFilesAndReload(yes, deleteFiles),
+            this.minecraft.setScreen(new ConfirmScreen(yes -> this.deleteFilesAndReload(yes, deleteFiles),
                     Component.translatable("gui.touhou_little_maid.resources_download.delete.confirm"),
                     Component.translatable(info.getName())));
         }
@@ -413,7 +413,7 @@ public class ModelDownloadGui extends Screen {
             this.checkDownloadInfo();
             this.init();
         }
-        this.getMinecraft().setScreen(this);
+        this.minecraft.setScreen(this);
     }
 
     public enum Condition {

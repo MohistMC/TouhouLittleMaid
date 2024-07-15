@@ -3,10 +3,6 @@ package com.github.tartaricacid.touhoulittlemaid.client.renderer.entity.layer;
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.github.tartaricacid.touhoulittlemaid.client.model.bedrock.BedrockModel;
 import com.github.tartaricacid.touhoulittlemaid.client.renderer.entity.EntityMaidRenderer;
-import com.github.tartaricacid.touhoulittlemaid.compat.carryon.RenderFixer;
-import com.github.tartaricacid.touhoulittlemaid.compat.slashblade.SlashBladeCompat;
-import com.github.tartaricacid.touhoulittlemaid.compat.slashblade.SlashBladeRender;
-import com.github.tartaricacid.touhoulittlemaid.compat.tacz.TacCompat;
 import com.github.tartaricacid.touhoulittlemaid.config.subconfig.InGameMaidConfig;
 import com.github.tartaricacid.touhoulittlemaid.entity.backpack.BackpackManager;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -36,7 +32,7 @@ public class LayerMaidBackItem extends RenderLayer<Mob, BedrockModel<Mob>> {
         }
         ItemStack stack = maid.getBackpackShowItem();
         if (!renderer.getMainInfo().isShowBackpack() || !InGameMaidConfig.INSTANCE.isShowBackItem()
-            || mob.isSleeping() || mob.isInvisible() || RenderFixer.isCarryOnRender(stack, bufferIn)) {
+            || mob.isSleeping() || mob.isInvisible()) {
             return;
         }
 
@@ -50,16 +46,9 @@ public class LayerMaidBackItem extends RenderLayer<Mob, BedrockModel<Mob>> {
             } else {
                 BackpackManager.getEmptyBackpack().offsetBackpackItem(matrixStack);
             }
-            if (SlashBladeCompat.isSlashBladeItem(stack)) {
-                SlashBladeRender.renderMaidBackSlashBlade(matrixStack, bufferIn, packedLightIn, stack);
-            } else {
-                Minecraft.getInstance().getItemRenderer().renderStatic(mob, stack, ItemDisplayContext.FIXED, false, matrixStack, bufferIn, mob.level(), packedLightIn, OverlayTexture.NO_OVERLAY, mob.getId());
-            }
+            Minecraft.getInstance().getItemRenderer().renderStatic(mob, stack, ItemDisplayContext.FIXED, false, matrixStack, bufferIn, mob.level(), packedLightIn, OverlayTexture.NO_OVERLAY, mob.getId());
             matrixStack.popPose();
             return;
         }
-
-        // TAC 兼容
-        TacCompat.renderBackGun(matrixStack, bufferIn, packedLightIn, stack, maid);
     }
 }

@@ -53,18 +53,18 @@ public class MaidBeaconGui extends Screen {
         this.addStorageAndTakeButton();
         this.addRenderableWidget(Button.builder(getOverflowDeleteButtonText(this.overflowDelete), b -> {
             this.overflowDelete = !this.overflowDelete;
-            NetworkHandler.CHANNEL.sendToServer(new SetBeaconOverflowMessage(beacon.getBlockPos(), this.overflowDelete));
+            // NetworkHandler.CHANNEL.sendToServer(new SetBeaconOverflowMessage(beacon.getBlockPos(), this.overflowDelete)); TODO forge api
             this.init();
         }).pos(leftPos + 118, topPos + 94).size(154, 20).build());
     }
 
     private void addStorageAndTakeButton() {
         this.addRenderableWidget(Button.builder(Component.translatable("gui.touhou_little_maid.maid_beacon.add_one"), b -> {
-            NetworkHandler.CHANNEL.sendToServer(new StorageAndTakePowerMessage(beacon.getBlockPos(), 1, true));
+            // NetworkHandler.CHANNEL.sendToServer(new StorageAndTakePowerMessage(beacon.getBlockPos(), 1, true)); TODO forge api
         }).pos(leftPos + 118, topPos + 72).size(76, 20).build());
 
         this.addRenderableWidget(Button.builder(Component.translatable("gui.touhou_little_maid.maid_beacon.min_one"), b -> {
-            NetworkHandler.CHANNEL.sendToServer(new StorageAndTakePowerMessage(beacon.getBlockPos(), 1, false));
+            // NetworkHandler.CHANNEL.sendToServer(new StorageAndTakePowerMessage(beacon.getBlockPos(), 1, false)); TODO forge api
         }).pos(leftPos + 196, topPos + 72).size(76, 20).build());
     }
 

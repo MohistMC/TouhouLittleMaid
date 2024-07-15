@@ -21,7 +21,7 @@ public class BroomTipsOverlay implements IGuiOverlay {
 
     @Override
     public void render(ForgeGui gui, GuiGraphics guiGraphics, float partialTick, int screenWidth, int screenHeight) {
-        Minecraft minecraft = gui.getMinecraft();
+        Minecraft minecraft = gui.minecraft;
         Options options = minecraft.options;
         if (options.hideGui) {
             return;

@@ -43,7 +43,7 @@ public class ModelSwitcherModelGui extends AbstractModelGui<EntityMaid, MaidMode
 
     @Override
     protected void drawRightEntity(GuiGraphics graphics, int posX, int posY, MaidModelInfo modelItem) {
-        Level world = getMinecraft().level;
+        Level world = minecraft.level;
         if (world == null) {
             return;
         }
@@ -87,7 +87,7 @@ public class ModelSwitcherModelGui extends AbstractModelGui<EntityMaid, MaidMode
         if (info.getEasterEgg() == null) {
             maid.setModelId(info.getModelId().toString());
             infoIn.setModelId(info.getModelId());
-            getMinecraft().setScreen(this.modelSwitcherGui);
+            minecraft.setScreen(this.modelSwitcherGui);
         }
     }
 

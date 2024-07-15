@@ -3,13 +3,12 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.conditio
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.tags.ITagManager;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -89,7 +88,7 @@ public class ConditionArmor {
         }
         List<ResourceLocation> idListTest = idTest.get(slot);
 		ItemStack item = maid.asEntity().getItemBySlot(slot);
-        ResourceLocation registryName = ForgeRegistries.ITEMS.getKey(item.getItem());
+        ResourceLocation registryName = BuiltInRegistries.ITEM.getKey(item.getItem());
         if (registryName == null) {
             return EMPTY;
         }

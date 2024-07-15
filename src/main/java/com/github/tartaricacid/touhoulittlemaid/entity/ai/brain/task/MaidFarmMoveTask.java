@@ -2,12 +2,12 @@ package com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.task;
 
 import com.github.tartaricacid.touhoulittlemaid.api.task.IFarmTask;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.items.IItemHandler;
 
 public class MaidFarmMoveTask extends MaidMoveToBlockTask {
     private final NonNullList<ItemStack> seeds = NonNullList.create();
@@ -21,7 +21,7 @@ public class MaidFarmMoveTask extends MaidMoveToBlockTask {
     @Override
     protected void start(ServerLevel worldIn, EntityMaid entityIn, long gameTimeIn) {
         seeds.clear();
-        IItemHandler inv = entityIn.getAvailableInv(true);
+        ItemStackHandler inv = entityIn.getAvailableInv(true);
         for (int i = 0; i < inv.getSlots(); i++) {
             ItemStack stack = inv.getStackInSlot(i);
             if (task.isSeed(stack)) {

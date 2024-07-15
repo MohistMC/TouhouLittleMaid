@@ -19,11 +19,11 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -99,7 +99,7 @@ public class MaidSoundPackGui extends Screen {
             ResourceLocation soundEvent = soundIds.get(i);
             this.addRenderableWidget(new SoundElementButton(startX + 245, startY + yOffset, 152, 12, soundEvent, buffers.get(soundEvent), otherColor, (b) -> {
                 SoundElementButton soundButton = (SoundElementButton) b;
-                SoundEvent event = ForgeRegistries.SOUND_EVENTS.getValue(soundButton.getSoundEvent());
+                SoundEvent event = BuiltInRegistries.SOUND_EVENT.get(soundButton.getSoundEvent());
                 if (minecraft != null && event != null) {
                     minecraft.getSoundManager().play(new MaidSoundInstance(event, this.selectSoundId, this.maid, true));
                 }
@@ -113,7 +113,7 @@ public class MaidSoundPackGui extends Screen {
         this.addRenderableWidget(new FlatColorButton(startX + 245, startY + 19, 110, 18, Component.translatable("gui.touhou_little_maid.custom_sound.pack.apply"), (b) -> {
             if (StringUtils.isNotBlank(selectSoundId) && CustomSoundLoader.CACHE.containsKey(selectSoundId)) {
                 this.maid.setSoundPackId(this.selectSoundId);
-                NetworkHandler.CHANNEL.sendToServer(new SetMaidSoundIdMessage(this.maid.getId(), this.selectSoundId));
+                // NetworkHandler.CHANNEL.sendToServer(new SetMaidSoundIdMessage(this.maid.getId(), this.selectSoundId)); TODO forge api
                 this.init();
             }
         }));

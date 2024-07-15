@@ -12,48 +12,35 @@ import com.github.tartaricacid.touhoulittlemaid.inventory.chest.ChestManager;
 import com.github.tartaricacid.touhoulittlemaid.item.bauble.BaubleManager;
 import com.github.tartaricacid.touhoulittlemaid.util.AnnotatedInstanceUtil;
 import com.google.common.collect.Lists;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-@Mod(TouhouLittleMaid.MOD_ID)
-public final class TouhouLittleMaid {
+public final class TouhouLittleMaid implements ModInitializer {
     public static final String MOD_ID = "touhou_little_maid";
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
     public static List<ILittleMaid> EXTENSIONS = Lists.newArrayList();
 
-    public TouhouLittleMaid() {
-        initRegister(FMLJavaModLoadingContext.get().getModEventBus());
-        InitTrigger.init();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GeneralConfig.init());
-        ChatBubbleManger.initDefaultChat();
-        modApiInit();
-    }
-
-    private static void initRegister(IEventBus eventBus) {
-        InitEntities.ENTITY_TYPES.register(eventBus);
-        InitEntities.ATTRIBUTES.register(eventBus);
-        InitEntities.MEMORY_MODULE_TYPES.register(eventBus);
-        InitEntities.SENSOR_TYPES.register(eventBus);
-        InitEntities.SCHEDULES.register(eventBus);
-        InitEntities.DATA_SERIALIZERS.register(eventBus);
-        InitBlocks.BLOCKS.register(eventBus);
-        InitBlocks.TILE_ENTITIES.register(eventBus);
-        InitItems.ITEMS.register(eventBus);
-        InitEnchantments.ENCHANTMENTS.register(eventBus);
-        InitCreativeTabs.TABS.register(eventBus);
-        InitContainer.CONTAINER_TYPE.register(eventBus);
-        InitSounds.SOUNDS.register(eventBus);
-        InitRecipes.RECIPE_SERIALIZERS.register(eventBus);
-        InitLootModifier.GLOBAL_LOOT_MODIFIER_SERIALIZER.register(eventBus);
-        InitCommand.ARGUMENT_TYPE.register(eventBus);
-        InitPoi.POI_TYPES.register(eventBus);
+    private static void initRegister() {
+        InitEntities.ENTITY_TYPES.register();
+        InitEntities.ATTRIBUTES.register();
+        InitEntities.MEMORY_MODULE_TYPES.register();
+        InitEntities.SENSOR_TYPES.register();
+        InitEntities.SCHEDULES.register();
+        InitEntities.DATA_SERIALIZERS.register();
+        InitBlocks.BLOCKS.register();
+        InitBlocks.TILE_ENTITIES.register();
+        InitItems.ITEMS.register();
+        InitEnchantments.ENCHANTMENTS.register();
+        InitCreativeTabs.TABS.register();
+        InitContainer.CONTAINER_TYPE.register();
+        InitSounds.SOUNDS.register();
+        InitRecipes.RECIPE_SERIALIZERS.register();
+        InitLootModifier.GLOBAL_LOOT_MODIFIER_SERIALIZER.register();
+        InitCommand.ARGUMENT_TYPE.register();
+        InitPoi.POI_TYPES.register();
     }
 
     private static void modApiInit() {
@@ -64,5 +51,14 @@ public final class TouhouLittleMaid {
         MultiBlockManager.init();
         ChestManager.init();
         MaidMealManager.init();
+    }
+
+    @Override
+    public void onInitialize() {
+        initRegister(FMLJavaModLoadingContext.get().getModEventBus());
+        InitTrigger.init();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GeneralConfig.init());
+        ChatBubbleManger.initDefaultChat();
+        modApiInit();
     }
 }

@@ -117,7 +117,7 @@ public abstract class AbstractModelGui<T extends LivingEntity, E extends IModelI
 
         // 关闭当前界面的按键
         this.addRenderableWidget(new ImageButton(startX + 122, startY - 97, 21, 17, 58, 201, 18, BG,
-                (b) -> getMinecraft().submit(() -> getMinecraft().setScreen(null))));
+                (b) -> minecraft.submit(() -> minecraft.setScreen(null))));
 
         // 添加切换页面的按钮
         addPageButton(startX, startY);
@@ -250,7 +250,7 @@ public abstract class AbstractModelGui<T extends LivingEntity, E extends IModelI
         drawTabIcon(graphics, middleX, middleY);
 
         // 绘制左边示例实体
-        double scale = getMinecraft().getWindow().getGuiScale();
+        double scale = minecraft.getWindow().getGuiScale();
         RenderSystem.enableScissor(0, 0,
                 (int) ((middleX - 256 / 2) * scale), (int) (height * scale));
         drawLeftEntity(graphics, middleX, middleY, mouseX, mouseY);
@@ -288,7 +288,7 @@ public abstract class AbstractModelGui<T extends LivingEntity, E extends IModelI
             CustomModelPack<E> pack = modelPackList.get(guiNumber.tabToPackIndex(index, getPageIndex()));
             ResourceLocation icon = pack.getIcon();
             if (icon != null) {
-                AbstractTexture iconTexture = Minecraft.getInstance().textureManager.getTexture(icon, EMPTY_ICON_TEXTURE);
+                AbstractTexture iconTexture = Minecraft.getInstance().getTextureManager().getTexture(icon, EMPTY_ICON_TEXTURE);
                 if (EMPTY_ICON_TEXTURE.equals(iconTexture)) {
                     icon = EMPTY_ICON;
                 }
@@ -316,7 +316,7 @@ public abstract class AbstractModelGui<T extends LivingEntity, E extends IModelI
     }
 
     private void checkIconAnimation(CustomModelPack<E> pack, ResourceLocation icon) {
-        AbstractTexture iconText = getMinecraft().textureManager.getTexture(icon);
+        AbstractTexture iconText = minecraft.getTextureManager().getTexture(icon);
         if (iconText instanceof SizeTexture) {
             int width = ((SizeTexture) iconText).getWidth();
             int height = ((SizeTexture) iconText).getHeight();

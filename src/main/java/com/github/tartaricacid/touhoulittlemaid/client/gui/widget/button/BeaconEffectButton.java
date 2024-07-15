@@ -48,7 +48,7 @@ public class BeaconEffectButton extends StateSwitchingButton {
 
     public void renderToolTip(GuiGraphics graphics, Screen screen, int pMouseX, int pMouseY) {
         if (this.isHovered) {
-            graphics.renderTooltip(screen.getMinecraft().font, tooltips, pMouseX, pMouseY);
+            graphics.renderTooltip(screen.minecraft.font, tooltips, pMouseX, pMouseY);
         }
     }
 }

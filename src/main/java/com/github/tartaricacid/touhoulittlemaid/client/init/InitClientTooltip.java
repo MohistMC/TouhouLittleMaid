@@ -4,12 +4,10 @@ import com.github.tartaricacid.touhoulittlemaid.client.tooltip.ClientItemContain
 import com.github.tartaricacid.touhoulittlemaid.client.tooltip.ClientMaidTooltip;
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemContainerTooltip;
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemMaidTooltip;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Environment(EnvType.CLIENT)
 public class InitClientTooltip {
     @SubscribeEvent
     public static void onRegisterClientTooltip(RegisterClientTooltipComponentFactoriesEvent event) {

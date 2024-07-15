@@ -8,6 +8,8 @@ import com.github.tartaricacid.touhoulittlemaid.init.InitSounds;
 import com.github.tartaricacid.touhoulittlemaid.inventory.AltarRecipeInventory;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityAltar;
 import com.github.tartaricacid.touhoulittlemaid.util.PosListData;
+import io.github.fabricators_of_create.porting_lib.block.CustomSoundTypeBlock;
+import io.github.fabricators_of_create.porting_lib.blocks.extensions.OnExplodedBlock;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -50,7 +52,7 @@ import java.util.function.Consumer;
 import static com.github.tartaricacid.touhoulittlemaid.api.bauble.IMaidBauble.RANDOM;
 
 
-public class BlockAltar extends Block implements EntityBlock {
+public class BlockAltar extends Block implements EntityBlock, OnExplodedBlock, CustomSoundTypeBlock {
     public BlockAltar() {
         super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2, 2).noOcclusion());
     }
@@ -92,7 +94,6 @@ public class BlockAltar extends Block implements EntityBlock {
         if (!world.isClientSide) {
             this.getAltar(world, pos).ifPresent(altar -> this.restoreStorageBlock(world, pos, altar.getBlockPosList()));
         }
-        super.onBlockExploded(state, world, pos, explosion);
     }
 
     @Override
@@ -183,7 +184,7 @@ public class BlockAltar extends Block implements EntityBlock {
     public SoundType getSoundType(BlockState state, LevelReader world, BlockPos pos, @Nullable Entity entity) {
         return this.getAltar(world, pos)
                 .map(altar -> altar.getStorageState().getSoundType())
-                .orElse(super.getSoundType(state, world, pos, entity));
+                .orElse(super.getSoundType(state));
     }
 
 

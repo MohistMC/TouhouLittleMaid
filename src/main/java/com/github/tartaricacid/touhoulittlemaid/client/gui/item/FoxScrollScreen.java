@@ -138,16 +138,16 @@ public class FoxScrollScreen extends Screen {
     }
 
     private BlockPos getPlayerPos() {
-        if (this.getMinecraft().player != null) {
-            return this.getMinecraft().player.blockPosition();
+        if (this.minecraft.player != null) {
+            return this.minecraft.player.blockPosition();
         }
         return BlockPos.ZERO;
     }
 
     @Nullable
     private String getPlayerDimension() {
-        if (this.getMinecraft().player != null) {
-            return this.getMinecraft().player.level.dimension().location().toString();
+        if (this.minecraft.player != null) {
+            return this.minecraft.player.level.dimension().location().toString();
         }
         return null;
     }

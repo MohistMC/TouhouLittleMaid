@@ -154,7 +154,7 @@ public class ChatBubbleRenderer {
 
     private static void renderIcon(int startX, int startY, ResourceLocation iconPath, RenderData data) {
         VertexConsumer iconVertexBuilder = data.buffer.getBuffer(chatBubbleRender(iconPath));
-        AbstractTexture texture = Minecraft.getInstance().textureManager.getTexture(iconPath);
+        AbstractTexture texture = Minecraft.getInstance().getTextureManager().getTexture(iconPath);
         if (texture instanceof SizeTexture) {
             SizeTexture sizeTexture = (SizeTexture) texture;
             int textureHeight = sizeTexture.getHeight();
