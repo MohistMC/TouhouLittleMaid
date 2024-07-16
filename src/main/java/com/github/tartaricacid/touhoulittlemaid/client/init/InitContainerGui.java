@@ -14,19 +14,19 @@ import net.minecraft.client.gui.screens.MenuScreens;
 
 @Environment(EnvType.CLIENT)
 public final class InitContainerGui {
-    @SubscribeEvent
-    public static void clientSetup(FMLClientSetupEvent evt) {
-        evt.enqueueWork(() -> MenuScreens.register(EmptyBackpackContainer.TYPE, EmptyBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(SmallBackpackContainer.TYPE, SmallBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(MiddleBackpackContainer.TYPE, MiddleBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(BigBackpackContainer.TYPE, BigBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(CraftingTableBackpackContainer.TYPE, CraftingTableBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(EnderChestBackpackContainer.TYPE, EnderChestBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(FurnaceBackpackContainer.TYPE, FurnaceBackpackContainerScreen::new));
-        evt.enqueueWork(() -> MenuScreens.register(TankBackpackContainer.TYPE, TankBackpackContainerScreen::new));
 
-        evt.enqueueWork(() -> MenuScreens.register(MaidConfigContainer.TYPE, MaidConfigContainerGui::new));
-        evt.enqueueWork(() -> MenuScreens.register(WirelessIOContainer.TYPE, WirelessIOContainerGui::new));
-        evt.enqueueWork(() -> MenuScreens.register(PicnicBasketContainer.TYPE, PicnicBasketContainerScreen::new));
+    public static void clientSetup() {
+        MenuScreens.register(EmptyBackpackContainer.TYPE, EmptyBackpackContainerScreen::new);
+        MenuScreens.register(SmallBackpackContainer.TYPE, SmallBackpackContainerScreen::new);
+        MenuScreens.register(MiddleBackpackContainer.TYPE, MiddleBackpackContainerScreen::new);
+        MenuScreens.register(BigBackpackContainer.TYPE, BigBackpackContainerScreen::new);
+        MenuScreens.register(CraftingTableBackpackContainer.TYPE, CraftingTableBackpackContainerScreen::new);
+        MenuScreens.register(EnderChestBackpackContainer.TYPE, EnderChestBackpackContainerScreen::new);
+        MenuScreens.register(FurnaceBackpackContainer.TYPE, FurnaceBackpackContainerScreen::new);
+        MenuScreens.register(TankBackpackContainer.TYPE, TankBackpackContainerScreen::new);
+
+        MenuScreens.register(MaidConfigContainer.TYPE, MaidConfigContainerGui::new);
+        MenuScreens.register(WirelessIOContainer.TYPE, WirelessIOContainerGui::new);
+        MenuScreens.register(PicnicBasketContainer.TYPE, PicnicBasketContainerScreen::new);
     }
 }

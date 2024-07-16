@@ -3,16 +3,14 @@ package com.github.tartaricacid.touhoulittlemaid.entity.backpack.data;
 import com.github.tartaricacid.touhoulittlemaid.api.backpack.IBackpackData;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.util.MaidFluidUtil;
+import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
-import net.minecraftforge.items.wrapper.CombinedInvWrapper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class TankBackpackData extends SimpleContainer implements IBackpackData {
     public static final int CAPACITY = 10 * FluidType.BUCKET_VOLUME;
@@ -97,7 +95,7 @@ public class TankBackpackData extends SimpleContainer implements IBackpackData {
     public void loadTank(CompoundTag nbt, EntityMaid maid) {
         tank.readFromNBT(nbt);
         this.tankFluidCount = tank.getFluidAmount();
-        ResourceLocation key = ForgeRegistries.FLUIDS.getKey(tank.getFluid().getFluid());
+        ResourceLocation key = BuiltInRegistries.FLUID.getKey(tank.getFluid().getFluid());
         if (key != null) {
             maid.setBackpackFluid(key.toString());
         }

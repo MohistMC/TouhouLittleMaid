@@ -2,7 +2,14 @@ accessWidener v1	named
 
 accessible field net/minecraft/world/entity/Entity level Lnet/minecraft/world/level/Level;
 accessible field net/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate palettes Ljava/util/List;
+accessible field net/minecraft/world/entity/Mob goalSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
+accessible field net/minecraft/world/entity/ai/goal/TemptGoal mob Lnet/minecraft/world/entity/PathfinderMob;
+accessible field net/minecraft/world/entity/ai/goal/TemptGoal speedModifier D
+accessible field net/minecraft/world/entity/ai/goal/TemptGoal items Lnet/minecraft/world/item/crafting/Ingredient;
+accessible field net/minecraft/world/entity/ai/goal/TemptGoal canScare Z
+
 accessible method net/minecraft/world/item/crafting/RecipeManager byType (Lnet/minecraft/world/item/crafting/RecipeType;)Ljava/util/Map;
 accessible method net/minecraft/world/level/biome/Biome getTemperature (Lnet/minecraft/core/BlockPos;)F
+accessible method net/minecraft/client/renderer/entity/EntityRenderers register (Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
 accessible class net/minecraft/client/renderer/RenderStateShard$ShaderStateShard
 accessible class net/minecraft/client/renderer/RenderStateShard$TransparencyStateShard

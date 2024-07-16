@@ -9,14 +9,13 @@ import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.entity.task.meal.MaidMealManager;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityPicnicMat;
 import com.google.common.collect.ImmutableMap;
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nullable;
 import java.util.List;

@@ -12,6 +12,8 @@ import com.github.tartaricacid.touhoulittlemaid.inventory.chest.ChestManager;
 import com.github.tartaricacid.touhoulittlemaid.item.bauble.BaubleManager;
 import com.github.tartaricacid.touhoulittlemaid.util.AnnotatedInstanceUtil;
 import com.google.common.collect.Lists;
+import io.github.fabricators_of_create.porting_lib.config.ConfigRegistry;
+import io.github.fabricators_of_create.porting_lib.config.ConfigType;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -55,9 +57,9 @@ public final class TouhouLittleMaid implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        initRegister(FMLJavaModLoadingContext.get().getModEventBus());
+        initRegister();
         InitTrigger.init();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, GeneralConfig.init());
+        ConfigRegistry.registerConfig(MOD_ID, ConfigType.COMMON, GeneralConfig.init());
         ChatBubbleManger.initDefaultChat();
         modApiInit();
     }

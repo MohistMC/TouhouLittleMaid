@@ -2,6 +2,7 @@ package com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.task;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.google.common.collect.ImmutableMap;
+import io.github.fabricators_of_create.porting_lib.extensions.extensions.IShearable;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -16,7 +17,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraftforge.common.IForgeShearable;
 
 import java.util.List;
 
@@ -44,8 +44,8 @@ public class MaidShearTask extends MaidCheckRateTask {
         this.getEntities(maid)
                 .find(e -> maid.isWithinRestriction(e.blockPosition()))
                 .filter(Entity::isAlive)
-                .filter(e -> e instanceof IForgeShearable)
-                .filter(e -> ((IForgeShearable) e).isShearable(mainHandItem, maid.level(), e.blockPosition()))
+                .filter(e -> e instanceof IShearable)
+                .filter(e -> ((IShearable) e).isShearable(mainHandItem, maid.level(), e.blockPosition()))
                 .filter(maid::canPathReach)
                 .findFirst()
                 .ifPresent(e -> {
@@ -55,8 +55,8 @@ public class MaidShearTask extends MaidCheckRateTask {
 
         if (shearableEntity != null && shearableEntity.closerThan(maid, 2)) {
             RandomSource rand = maid.getRandom();
-            int level = EnchantmentHelper.getTagEnchantmentLevel(Enchantments.BLOCK_FORTUNE, mainHandItem);
-            List<ItemStack> drops = ((IForgeShearable) shearableEntity).onSheared(null, mainHandItem,
+            int level = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE, mainHandItem);
+            List<ItemStack> drops = ((IShearable) shearableEntity).onSheared(null, mainHandItem,
                     maid.level(), shearableEntity.blockPosition(), level);
             drops.forEach(stack -> {
                 ItemEntity itemEntity = shearableEntity.spawnAtLocation(stack, 1.0F);

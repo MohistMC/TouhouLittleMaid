@@ -1,18 +1,15 @@
 package com.github.tartaricacid.touhoulittlemaid.event.food;
 
-import com.github.tartaricacid.touhoulittlemaid.api.event.MaidAfterEatEvent;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.BowlFoodItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 
-@Mod.EventBusSubscriber
+
 public class BowlFoodEvent {
+
+    /*
     @SubscribeEvent
     public static void onAfterMaidEat(MaidAfterEatEvent event) {
         ItemStack foodAfterEat = event.getFoodAfterEat();
@@ -28,4 +25,5 @@ public class BowlFoodEvent {
             }
         }
     }
+     */
 }

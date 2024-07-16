@@ -5,6 +5,7 @@ import com.github.tartaricacid.touhoulittlemaid.entity.backpack.BackpackManager;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import io.github.fabricators_of_create.porting_lib.entity.events.EntityEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -41,14 +42,16 @@ public final class EntityCacheUtil {
         }
     }
 
-    @SubscribeEvent
-    public static void onChangeDim(EntityJoinLevelEvent event) {
-        if (event.getLevel().isClientSide && event.getEntity() == Minecraft.getInstance().player) {
-            ResourceKey<Level> dim = event.getEntity().level.dimension();
-            if (!dim.equals(dimAt)) {
-                dimAt = dim;
-                EntityCacheUtil.ENTITY_CACHE.invalidateAll();
+    public static void onChangeDim() {
+        EntityEvents.ON_JOIN_WORLD.register((entity, world, loadedFromDisk) -> {
+            if (world.isClientSide && entity == Minecraft.getInstance().player) {
+                ResourceKey<Level> dim = entity.level.dimension();
+                if (!dim.equals(dimAt)) {
+                    dimAt = dim;
+                    EntityCacheUtil.ENTITY_CACHE.invalidateAll();
+                }
             }
-        }
+            return loadedFromDisk;
+        });
     }
 }

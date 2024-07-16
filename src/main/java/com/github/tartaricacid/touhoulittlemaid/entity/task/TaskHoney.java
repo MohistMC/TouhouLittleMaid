@@ -14,7 +14,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.behavior.BehaviorControl;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.ToolActions;
 
 import javax.annotation.Nullable;
 import java.util.List;

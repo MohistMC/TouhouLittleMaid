@@ -1,25 +1,18 @@
 package com.github.tartaricacid.touhoulittlemaid.event.food;
 
 import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
-import com.github.tartaricacid.touhoulittlemaid.api.event.MaidAfterEatEvent;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.util.ItemsUtil;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.wrapper.CombinedInvWrapper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
-
-import static com.github.tartaricacid.touhoulittlemaid.config.subconfig.MaidConfig.MAID_EATEN_RETURN_CONTAINER_LIST;
-
-@Mod.EventBusSubscriber
 public class DefaultEatenEvent {
+
+    /*
     @SubscribeEvent
     public static void onAfterMaidEat(MaidAfterEatEvent event) {
         ItemStack foodAfterEat = event.getFoodAfterEat();
@@ -48,10 +41,11 @@ public class DefaultEatenEvent {
             }
         }
     }
+     */
 
     private static ItemStack getItemStack(String itemId) {
         ResourceLocation resourceLocation = new ResourceLocation(itemId);
-        Item value = ForgeRegistries.ITEMS.getValue(resourceLocation);
+        Item value = BuiltInRegistries.ITEM.get(resourceLocation);
         if (value != null) {
             return new ItemStack(value);
         }else {
