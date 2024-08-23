@@ -8,6 +8,8 @@ import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.IModelInfo;
 import com.github.tartaricacid.touhoulittlemaid.util.ParseI18n;
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -26,8 +28,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.MaidModelInfo.ENCRYPT_EGG_NAME;
 import static com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.MaidModelInfo.NORMAL_EGG_NAME;

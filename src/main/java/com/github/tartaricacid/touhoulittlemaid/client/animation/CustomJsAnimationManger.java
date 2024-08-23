@@ -4,15 +4,6 @@ import com.github.tartaricacid.touhoulittlemaid.client.animation.inner.InnerAnim
 import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.IModelInfo;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import net.minecraft.resources.ResourceLocation;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import org.apache.commons.io.IOUtils;
-
-import javax.annotation.Nullable;
-import javax.script.Bindings;
-import javax.script.ScriptEngine;
-import javax.script.ScriptException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,6 +14,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import javax.annotation.Nullable;
+import javax.script.Bindings;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.resources.ResourceLocation;
+import org.apache.commons.io.IOUtils;
+import org.openjdk.nashorn.api.scripting.NashornScriptEngineFactory;
 
 @Environment(EnvType.CLIENT)
 public class CustomJsAnimationManger {

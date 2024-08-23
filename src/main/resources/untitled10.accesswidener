@@ -7,6 +7,7 @@ accessible field net/minecraft/world/entity/ai/goal/TemptGoal mob Lnet/minecraft
 accessible field net/minecraft/world/entity/ai/goal/TemptGoal speedModifier D
 accessible field net/minecraft/world/entity/ai/goal/TemptGoal items Lnet/minecraft/world/item/crafting/Ingredient;
 accessible field net/minecraft/world/entity/ai/goal/TemptGoal canScare Z
+accessible field net/minecraft/world/entity/ExperienceOrb value I
 
 accessible method net/minecraft/world/item/crafting/RecipeManager byType (Lnet/minecraft/world/item/crafting/RecipeType;)Ljava/util/Map;
 accessible method net/minecraft/world/level/biome/Biome getTemperature (Lnet/minecraft/core/BlockPos;)F

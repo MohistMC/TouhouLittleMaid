@@ -4,9 +4,8 @@ import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.github.tartaricacid.touhoulittlemaid.client.entity.GeckoMaidEntity;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.builder.ILoopType;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.event.predicate.AnimationEvent;
-import net.minecraft.util.Mth;
-
 import java.util.function.BiPredicate;
+import net.minecraft.util.Mth;
 
 public class AnimationState {
     private final String animationName;

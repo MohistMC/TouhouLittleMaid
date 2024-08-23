@@ -2,9 +2,9 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.inner;
 
 import com.github.tartaricacid.touhoulittlemaid.client.animation.script.ModelRendererWrapper;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityChair;
+import java.util.HashMap;
 import net.minecraft.resources.ResourceLocation;
 
-import java.util.HashMap;
 
 import static com.github.tartaricacid.touhoulittlemaid.client.animation.inner.InnerAnimation.INNER_ANIMATION;
 

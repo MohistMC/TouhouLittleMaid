@@ -1,10 +1,9 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition;
 
 import com.google.common.collect.Lists;
+import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.List;
 
 public class ConditionTAC {
     private static final String EMPTY = "";

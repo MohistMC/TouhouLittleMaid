@@ -4,11 +4,10 @@ import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
 import com.github.tartaricacid.touhoulittlemaid.config.subconfig.MaidConfig;
 import com.google.common.collect.Lists;
 import io.github.fabricators_of_create.porting_lib.config.ConfigEvents;
-import net.minecraft.core.registries.BuiltInRegistries;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.regex.Pattern;
+import net.minecraft.core.registries.BuiltInRegistries;
+import org.jetbrains.annotations.NotNull;
 
 public class MaidMealRegConfigEvent {
     private static final String CONFIG_NAME = TouhouLittleMaid.MOD_ID + "-common.toml";

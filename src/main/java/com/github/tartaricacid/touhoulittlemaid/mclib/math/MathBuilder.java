@@ -1,7 +1,18 @@
 package com.github.tartaricacid.touhoulittlemaid.mclib.math;
 
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.Function;
-import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.*;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.ACos;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.ASin;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.ATan;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.ATan2;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Abs;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Cos;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Exp;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Ln;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Mod;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Pow;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Sin;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.classic.Sqrt;
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.limit.Clamp;
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.limit.Max;
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.limit.Min;
@@ -9,8 +20,13 @@ import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.rounding.Ce
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.rounding.Floor;
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.rounding.Round;
 import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.rounding.Trunc;
-import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.*;
-
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.DieRoll;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.DieRollInteger;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.HermiteBlend;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.Lerp;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.LerpRotate;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.Random;
+import com.github.tartaricacid.touhoulittlemaid.mclib.math.functions.utility.RandomInteger;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -6,6 +6,9 @@ import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemMaidTooltip;
 import com.github.tartaricacid.touhoulittlemaid.util.EntityCacheUtil;
 import com.github.tartaricacid.touhoulittlemaid.util.ParseI18n;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -19,9 +22,6 @@ import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.StringUtils;
 import org.joml.Quaternionf;
 
-import javax.annotation.Nullable;
-import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 import static com.github.tartaricacid.touhoulittlemaid.client.event.SpecialMaidRenderEvent.EASTER_EGG_MODEL;
 import static com.github.tartaricacid.touhoulittlemaid.util.EntityCacheUtil.clearMaidDataResidue;

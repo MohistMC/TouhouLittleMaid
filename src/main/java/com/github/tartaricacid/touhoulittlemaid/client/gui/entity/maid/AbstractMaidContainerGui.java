@@ -23,6 +23,11 @@ import com.github.tartaricacid.touhoulittlemaid.util.ParseI18n;
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.datafixers.util.Pair;
+import java.text.DecimalFormat;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Predicate;
+import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.gui.GuiGraphics;
@@ -41,11 +46,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.fml.ModList;
 
-import javax.annotation.Nullable;
-import java.text.DecimalFormat;
-import java.util.Collections;
-import java.util.List;
-import java.util.function.Predicate;
 
 import static com.github.tartaricacid.touhoulittlemaid.util.GuiTools.NO_ACTION;
 

@@ -93,7 +93,7 @@ public class WirelessIOContainer extends AbstractContainerMenu {
     }
 
     private class WirelessIOSlotItemHandler extends SlotItemHandler {
-        private WirelessIOSlotItemHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+        private WirelessIOSlotItemHandler(ItemStackHandler itemHandler, int index, int xPosition, int yPosition) {
             super(itemHandler, index, xPosition, yPosition);
         }
 

@@ -11,6 +11,7 @@ import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.molang.MolangPars
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.model.provider.data.EntityModelData;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.resource.GeckoLibCache;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.util.MolangUtils;
+import java.util.function.BiPredicate;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
@@ -22,8 +23,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.function.BiPredicate;
 
 public class AnimationRegister {
     private static final double MIN_SPEED = 0.05;

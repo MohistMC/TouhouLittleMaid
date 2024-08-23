@@ -4,15 +4,14 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.util.Mth;
-import org.apache.commons.lang3.StringUtils;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import net.minecraft.util.Mth;
+import org.apache.commons.lang3.StringUtils;
 
 public class DownloadInfo {
     private static final String[] UNITS = new String[]{"B", "kB", "MB", "GB", "TB"};

@@ -1,14 +1,13 @@
 package com.github.tartaricacid.touhoulittlemaid.entity.ai.goal;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import java.util.EnumSet;
+import javax.annotation.Nullable;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.item.crafting.Ingredient;
-
-import javax.annotation.Nullable;
-import java.util.EnumSet;
 
 public class MaidTemptGoal extends Goal {
     private static final TargetingConditions TEMP_TARGETING = TargetingConditions.forNonCombat().range(10).ignoreLineOfSight();

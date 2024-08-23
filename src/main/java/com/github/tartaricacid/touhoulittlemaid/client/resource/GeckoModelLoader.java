@@ -15,16 +15,15 @@ import com.github.tartaricacid.touhoulittlemaid.geckolib3.resource.GeckoLibCache
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.util.json.JsonAnimationUtils;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.ChainedJsonException;
-import net.minecraft.util.GsonHelper;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.ChainedJsonException;
+import net.minecraft.util.GsonHelper;
 
 public class GeckoModelLoader {
     public static final ResourceLocation DEFAULT_MAID_ANIMATION = new ResourceLocation(TouhouLittleMaid.MOD_ID, "animation/maid.animation.json");

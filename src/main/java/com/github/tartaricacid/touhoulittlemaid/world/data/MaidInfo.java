@@ -1,9 +1,8 @@
 package com.github.tartaricacid.touhoulittlemaid.world.data;
 
+import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-
-import java.util.UUID;
 
 public final class MaidInfo {
     private final String dimension;

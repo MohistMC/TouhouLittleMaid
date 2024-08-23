@@ -5,15 +5,14 @@ import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.CustomModel
 import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.MaidModelInfo;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import net.minecraft.world.entity.Mob;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-
-import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import javax.annotation.Nullable;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.world.entity.Mob;
 
 @Environment(EnvType.CLIENT)
 public final class MaidModels {

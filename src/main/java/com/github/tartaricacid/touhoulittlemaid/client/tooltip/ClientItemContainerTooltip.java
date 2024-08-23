@@ -2,6 +2,7 @@ package com.github.tartaricacid.touhoulittlemaid.client.tooltip;
 
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemContainerTooltip;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
+import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -10,8 +11,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
-
-import javax.annotation.Nullable;
 
 public class ClientItemContainerTooltip implements ClientTooltipComponent {
     private final NonNullList<ItemStack> items = NonNullList.create();

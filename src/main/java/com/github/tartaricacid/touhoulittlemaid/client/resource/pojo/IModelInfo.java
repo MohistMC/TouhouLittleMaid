@@ -1,10 +1,9 @@
 package com.github.tartaricacid.touhoulittlemaid.client.resource.pojo;
 
 
-import net.minecraft.resources.ResourceLocation;
-
-import javax.annotation.Nullable;
 import java.util.List;
+import javax.annotation.Nullable;
+import net.minecraft.resources.ResourceLocation;
 
 public interface IModelInfo {
     ResourceLocation getModelId();

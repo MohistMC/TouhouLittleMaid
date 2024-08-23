@@ -4,17 +4,14 @@ import com.github.tartaricacid.touhoulittlemaid.client.gui.entity.detail.ChairMo
 import com.github.tartaricacid.touhoulittlemaid.client.resource.CustomPackLoader;
 import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.ChairModelInfo;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityChair;
-import com.github.tartaricacid.touhoulittlemaid.network.NetworkHandler;
-import com.github.tartaricacid.touhoulittlemaid.network.message.ChairModelMessage;
 import com.github.tartaricacid.touhoulittlemaid.util.EntityCacheUtil;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class ChairModelGui extends AbstractModelGui<EntityChair, ChairModelInfo> {
     private static int PAGE_INDEX = 0;

@@ -1,11 +1,10 @@
 package com.github.tartaricacid.touhoulittlemaid.util;
 
 import com.google.common.collect.Lists;
+import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-
-import java.util.List;
 
 public final class ParseI18n {
     private static final String I18N_START_CHAR = "{";

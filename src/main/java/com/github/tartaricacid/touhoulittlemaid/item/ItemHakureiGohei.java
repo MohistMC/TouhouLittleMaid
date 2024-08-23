@@ -5,6 +5,8 @@ import com.github.tartaricacid.touhoulittlemaid.block.multiblock.MultiBlockManag
 import com.google.common.base.Predicates;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import java.util.List;
+import java.util.function.Predicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -24,9 +26,6 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-
-import java.util.List;
-import java.util.function.Predicate;
 
 public class ItemHakureiGohei extends ProjectileWeaponItem {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;

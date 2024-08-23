@@ -1,6 +1,5 @@
 package com.github.tartaricacid.touhoulittlemaid.config;
 
-import com.electronwill.nightconfig.core.ConfigSpec;
 import com.github.tartaricacid.touhoulittlemaid.config.subconfig.ChairConfig;
 import com.github.tartaricacid.touhoulittlemaid.config.subconfig.MaidConfig;
 import com.github.tartaricacid.touhoulittlemaid.config.subconfig.MiscConfig;

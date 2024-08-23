@@ -11,6 +11,12 @@ import com.github.tartaricacid.touhoulittlemaid.util.PosListData;
 import io.github.fabricators_of_create.porting_lib.block.CustomSoundTypeBlock;
 import io.github.fabricators_of_create.porting_lib.blocks.extensions.OnExplodedBlock;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelper;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
+import javax.annotation.Nullable;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleEngine;
@@ -41,13 +47,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Consumer;
 
 import static com.github.tartaricacid.touhoulittlemaid.api.bauble.IMaidBauble.RANDOM;
 

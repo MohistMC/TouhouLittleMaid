@@ -7,12 +7,11 @@ import com.github.tartaricacid.touhoulittlemaid.init.InitItems;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import java.util.Map;
+import javax.annotation.Nullable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-
-import javax.annotation.Nullable;
-import java.util.Map;
 
 public final class BaubleManager {
     private static Map<RegistryObject<Item>, IMaidBauble> BAUBLES;

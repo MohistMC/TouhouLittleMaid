@@ -1,12 +1,11 @@
 package com.github.tartaricacid.touhoulittlemaid.client.gui.entity.maid;
 
+import java.util.List;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
-
-import java.util.List;
 
 public class CheckSchedulePosGui extends Screen {
     private final AbstractMaidContainerGui<?> parent;

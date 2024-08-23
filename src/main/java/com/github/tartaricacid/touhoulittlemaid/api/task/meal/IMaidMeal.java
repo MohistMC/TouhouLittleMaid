@@ -1,12 +1,11 @@
 package com.github.tartaricacid.touhoulittlemaid.api.task.meal;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.List;
 
 public interface IMaidMeal {
     static boolean isBlockList(ItemStack food, List<String> blockList) {

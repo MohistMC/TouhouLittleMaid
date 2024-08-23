@@ -3,18 +3,17 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.conditio
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.annotation.Nullable;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ConditionArmor {
     private static final Pattern ID_PRE_REG = Pattern.compile("^(.+?)\\$(.*?)$");

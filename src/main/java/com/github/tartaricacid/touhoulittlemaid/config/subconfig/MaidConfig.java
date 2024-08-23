@@ -3,11 +3,10 @@ package com.github.tartaricacid.touhoulittlemaid.config.subconfig;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import io.github.fabricators_of_create.porting_lib.config.ModConfigSpec;
+import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-
-import java.util.List;
 
 public final class MaidConfig {
     public static final String TAG_PREFIX = "#";

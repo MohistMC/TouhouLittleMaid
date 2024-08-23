@@ -1,14 +1,13 @@
 package com.github.tartaricacid.touhoulittlemaid.mixin.client;
 
 import com.github.tartaricacid.touhoulittlemaid.client.resource.LanguageLoader;
+import java.util.Map;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.ClientLanguage;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Map;
 
 @Mixin(ClientLanguage.class)
 public class LanguageMixin {

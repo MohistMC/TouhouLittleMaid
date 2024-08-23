@@ -17,10 +17,12 @@ public final class InitRecipes {
     public static RegistryObject<RecipeSerializer<?>> ALTAR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("altar_crafting", AltarRecipeSerializer::new);
     public static RecipeType<AltarRecipe> ALTAR_CRAFTING;
 
+    /*
     @SubscribeEvent
     public static void register(RegisterEvent evt) {
         if (evt.getRegistryKey().equals(Registries.RECIPE_SERIALIZER)) {
             ALTAR_CRAFTING = RecipeType.simple(new ResourceLocation(TouhouLittleMaid.MOD_ID, "altar_crafting"));
         }
     }
+     */
 }

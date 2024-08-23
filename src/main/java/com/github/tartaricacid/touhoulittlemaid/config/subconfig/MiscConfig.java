@@ -2,11 +2,10 @@ package com.github.tartaricacid.touhoulittlemaid.config.subconfig;
 
 import com.google.common.collect.Lists;
 import io.github.fabricators_of_create.porting_lib.config.ModConfigSpec;
+import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
-
-import java.util.List;
 
 public final class MiscConfig {
     public static ModConfigSpec.DoubleValue MAID_FAIRY_POWER_POINT;

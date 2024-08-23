@@ -6,6 +6,8 @@ import com.github.tartaricacid.touhoulittlemaid.init.InitBlocks;
 import com.github.tartaricacid.touhoulittlemaid.init.InitEntities;
 import com.github.tartaricacid.touhoulittlemaid.init.InitPoi;
 import com.google.common.collect.ImmutableMap;
+import java.util.Comparator;
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
@@ -17,9 +19,6 @@ import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
-
-import javax.annotation.Nullable;
-import java.util.Comparator;
 
 public class MaidBedTask extends MaidCheckRateTask {
     private final int closeEnoughDist;

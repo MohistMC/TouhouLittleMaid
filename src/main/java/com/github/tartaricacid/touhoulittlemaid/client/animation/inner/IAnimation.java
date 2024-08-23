@@ -1,9 +1,8 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.inner;
 
 import com.github.tartaricacid.touhoulittlemaid.client.animation.script.ModelRendererWrapper;
-import net.minecraft.world.entity.LivingEntity;
-
 import java.util.HashMap;
+import net.minecraft.world.entity.LivingEntity;
 
 public interface IAnimation<T extends LivingEntity> {
     /**

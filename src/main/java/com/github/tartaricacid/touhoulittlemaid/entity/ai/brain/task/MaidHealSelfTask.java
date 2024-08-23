@@ -5,12 +5,11 @@ import com.github.tartaricacid.touhoulittlemaid.api.task.meal.MaidMealType;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.entity.task.meal.MaidMealManager;
 import com.google.common.collect.ImmutableMap;
+import java.util.List;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.wrapper.RangedWrapper;
-
-import java.util.List;
 
 public class MaidHealSelfTask extends MaidCheckRateTask {
     private static final int MAX_DELAY_TIME = 50;

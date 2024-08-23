@@ -4,10 +4,10 @@ package com.github.tartaricacid.touhoulittlemaid.client.resource.pojo;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText;
 import com.google.common.collect.Maps;
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.resources.ResourceLocation;
-
 import java.util.HashMap;
 import java.util.List;
+import net.minecraft.resources.ResourceLocation;
+
 
 import static com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatBubbleManger.DEFAULT_CHAT_BUBBLE;
 

@@ -4,11 +4,10 @@ import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.CustomModel
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.resources.ResourceLocation;
-
-import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.Nullable;
+import net.minecraft.resources.ResourceLocation;
 
 public class SoundPackInfo {
     @SerializedName("date")

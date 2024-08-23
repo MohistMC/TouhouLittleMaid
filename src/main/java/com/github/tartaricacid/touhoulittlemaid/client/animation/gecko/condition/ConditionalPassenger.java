@@ -1,14 +1,13 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition;
 
 import com.google.common.collect.Lists;
+import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-
-import java.util.List;
 
 public class ConditionalPassenger {
     private static final String EMPTY = "";

@@ -6,10 +6,10 @@ import com.github.tartaricacid.touhoulittlemaid.client.gui.widget.button.ImageBu
 import com.github.tartaricacid.touhoulittlemaid.client.resource.CustomPackLoader;
 import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.MaidModelInfo;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
-import com.github.tartaricacid.touhoulittlemaid.network.NetworkHandler;
-import com.github.tartaricacid.touhoulittlemaid.network.message.SaveSwitcherDataMessage;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityModelSwitcher;
 import com.github.tartaricacid.touhoulittlemaid.util.ParseI18n;
+import java.util.List;
+import java.util.UUID;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -22,9 +22,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
-
-import java.util.List;
-import java.util.UUID;
 
 public class ModelSwitcherGui extends Screen {
     private static final ResourceLocation BG = new ResourceLocation(TouhouLittleMaid.MOD_ID, "textures/gui/model_switcher.png");

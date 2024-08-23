@@ -1,12 +1,11 @@
 package com.github.tartaricacid.touhoulittlemaid.util;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import java.util.List;
+import java.util.Optional;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.List;
-import java.util.Optional;
 
 public final class MaidRayTraceHelper {
     private MaidRayTraceHelper() {

@@ -2,6 +2,5 @@
 @MethodsReturnNonnullByDefault
 package com.github.tartaricacid.touhoulittlemaid.init;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-
 import javax.annotation.ParametersAreNonnullByDefault;
+import net.minecraft.MethodsReturnNonnullByDefault;

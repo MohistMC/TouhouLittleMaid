@@ -1,8 +1,7 @@
 package com.github.tartaricacid.touhoulittlemaid.block.properties;
 
-import net.minecraft.util.StringRepresentable;
-
 import java.util.Locale;
+import net.minecraft.util.StringRepresentable;
 
 public enum PicnicMatPart implements StringRepresentable {
     CENTER,

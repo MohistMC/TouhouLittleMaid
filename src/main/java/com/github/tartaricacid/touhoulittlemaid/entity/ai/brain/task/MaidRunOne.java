@@ -3,11 +3,10 @@ package com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.task;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntitySit;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.mojang.datafixers.util.Pair;
+import java.util.List;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.behavior.BehaviorControl;
 import net.minecraft.world.entity.ai.behavior.RunOne;
-
-import java.util.List;
 
 public class MaidRunOne extends RunOne<EntityMaid> {
     public MaidRunOne(List<Pair<? extends BehaviorControl<? super EntityMaid>, Integer>> pEntryCondition) {

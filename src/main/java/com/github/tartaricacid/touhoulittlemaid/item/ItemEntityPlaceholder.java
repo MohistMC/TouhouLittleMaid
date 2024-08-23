@@ -4,6 +4,12 @@ import com.github.tartaricacid.touhoulittlemaid.crafting.AltarRecipe;
 import com.github.tartaricacid.touhoulittlemaid.init.InitItems;
 import com.github.tartaricacid.touhoulittlemaid.init.InitRecipes;
 import com.github.tartaricacid.touhoulittlemaid.inventory.AltarRecipeInventory;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+import javax.annotation.Nullable;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.Direction;
@@ -19,12 +25,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import javax.annotation.Nullable;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
 
 public class ItemEntityPlaceholder extends Item {
     private static final String RECIPES_ID_TAG = "RecipeId";

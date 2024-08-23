@@ -1,10 +1,9 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition;
 
 import com.google.common.collect.Maps;
+import java.util.Map;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
-
-import java.util.Map;
 
 public class ConditionManager {
     public static Map<ResourceLocation, ConditionalSwing> SWING = Maps.newHashMap();

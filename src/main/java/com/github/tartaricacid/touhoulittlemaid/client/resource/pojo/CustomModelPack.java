@@ -6,12 +6,11 @@ import com.google.common.collect.Lists;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.resources.ResourceLocation;
-
-import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import javax.annotation.Nullable;
+import net.minecraft.resources.ResourceLocation;
 
 public class CustomModelPack<T extends IModelInfo> {
     @SerializedName("date")

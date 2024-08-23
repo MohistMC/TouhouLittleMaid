@@ -7,6 +7,8 @@ import com.github.tartaricacid.touhoulittlemaid.item.ItemChair;
 import com.github.tartaricacid.touhoulittlemaid.util.EntityCacheUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -17,9 +19,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-
-import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 public class TileEntityItemStackChairRenderer extends BlockEntityWithoutLevelRenderer {
     public TileEntityItemStackChairRenderer(BlockEntityRenderDispatcher dispatcher, EntityModelSet modelSet) {

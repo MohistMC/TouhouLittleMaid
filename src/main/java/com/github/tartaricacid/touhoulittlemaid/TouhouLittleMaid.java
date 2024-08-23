@@ -8,6 +8,8 @@ import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatBubbleMang
 import com.github.tartaricacid.touhoulittlemaid.entity.task.TaskManager;
 import com.github.tartaricacid.touhoulittlemaid.entity.task.meal.MaidMealManager;
 import com.github.tartaricacid.touhoulittlemaid.init.*;
+import com.github.tartaricacid.touhoulittlemaid.init.registry.CommandRegistry;
+import com.github.tartaricacid.touhoulittlemaid.init.registry.CommonRegistry;
 import com.github.tartaricacid.touhoulittlemaid.inventory.chest.ChestManager;
 import com.github.tartaricacid.touhoulittlemaid.item.bauble.BaubleManager;
 import com.github.tartaricacid.touhoulittlemaid.util.AnnotatedInstanceUtil;
@@ -62,5 +64,7 @@ public final class TouhouLittleMaid implements ModInitializer {
         ConfigRegistry.registerConfig(MOD_ID, ConfigType.COMMON, GeneralConfig.init());
         ChatBubbleManger.initDefaultChat();
         modApiInit();
+        CommonRegistry.onSetupEvent();
+        CommandRegistry.onServerStaring();
     }
 }

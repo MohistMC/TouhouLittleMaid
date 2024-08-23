@@ -3,11 +3,11 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.inner;
 import com.github.tartaricacid.touhoulittlemaid.client.animation.script.ModelRendererWrapper;
 import com.ibm.icu.util.ChineseCalendar;
 import com.ibm.icu.util.ULocale;
+import java.util.Calendar;
+import java.util.HashMap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
-import java.util.Calendar;
-import java.util.HashMap;
 
 import static com.github.tartaricacid.touhoulittlemaid.client.animation.inner.InnerAnimation.INNER_ANIMATION;
 

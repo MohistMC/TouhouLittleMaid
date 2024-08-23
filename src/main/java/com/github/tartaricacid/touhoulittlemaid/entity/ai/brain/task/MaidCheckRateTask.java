@@ -1,12 +1,11 @@
 package com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.task;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import java.util.Map;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-
-import java.util.Map;
 
 public abstract class MaidCheckRateTask extends Behavior<EntityMaid> {
     private int maxCheckRate = 20;

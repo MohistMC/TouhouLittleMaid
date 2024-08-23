@@ -4,16 +4,15 @@ import com.github.tartaricacid.touhoulittlemaid.client.gui.widget.button.FlatCol
 import com.github.tartaricacid.touhoulittlemaid.network.NetworkHandler;
 import com.github.tartaricacid.touhoulittlemaid.network.message.FoxScrollMessage;
 import com.github.tartaricacid.touhoulittlemaid.network.message.SetScrollData;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import org.apache.commons.lang3.StringUtils;
-
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Map;
 
 public class FoxScrollScreen extends Screen {
     private static final int PER_PAGE_COUNT = 5;

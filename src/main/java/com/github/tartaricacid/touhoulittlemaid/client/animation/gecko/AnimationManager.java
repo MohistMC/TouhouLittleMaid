@@ -1,7 +1,13 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko;
 
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
-import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.*;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionArmor;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionManager;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionalHold;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionalPassenger;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionalSwing;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionalUse;
+import com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.condition.ConditionalVehicle;
 import com.github.tartaricacid.touhoulittlemaid.client.entity.GeckoMaidEntity;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.IAnimatable;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.PlayState;
@@ -10,6 +16,9 @@ import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.builder.ILoopType
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.core.event.predicate.AnimationEvent;
 import com.github.tartaricacid.touhoulittlemaid.geckolib3.resource.GeckoLibCache;
 import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
+import java.util.Objects;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
@@ -21,10 +30,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.Objects;
 
 public final class AnimationManager {
     private static AnimationManager MANAGER;

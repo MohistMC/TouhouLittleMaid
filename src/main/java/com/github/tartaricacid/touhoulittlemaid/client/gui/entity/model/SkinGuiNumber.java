@@ -2,9 +2,8 @@ package com.github.tartaricacid.touhoulittlemaid.client.gui.entity.model;
 
 import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.CustomModelPack;
 import com.github.tartaricacid.touhoulittlemaid.client.resource.pojo.IModelInfo;
-import net.minecraft.util.Mth;
-
 import java.util.List;
+import net.minecraft.util.Mth;
 
 public class SkinGuiNumber<T extends IModelInfo> {
     private static final int PACK_INTERVAL = 7;

@@ -3,7 +3,15 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.conditio
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.github.tartaricacid.touhoulittlemaid.item.ItemHakureiGohei;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.ThrowablePotionItem;
 
 public class InnerClassify {
     private static final String EMPTY = "";

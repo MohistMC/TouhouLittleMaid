@@ -1,13 +1,12 @@
 package com.github.tartaricacid.touhoulittlemaid.util;
 
 import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
-import org.apache.commons.io.FileUtils;
-
-import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Path;
+import javax.annotation.Nullable;
+import org.apache.commons.io.FileUtils;
 
 public final class GetJarResources {
     private GetJarResources() {

@@ -1,11 +1,10 @@
 package com.github.tartaricacid.touhoulittlemaid.util;
 
 import com.google.common.collect.Lists;
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
-
-import java.util.List;
 
 public final class PosListData {
     private final List<BlockPos> data = Lists.newArrayList();

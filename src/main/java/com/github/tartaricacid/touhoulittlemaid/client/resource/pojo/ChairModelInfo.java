@@ -3,13 +3,12 @@ package com.github.tartaricacid.touhoulittlemaid.client.resource.pojo;
 import com.github.tartaricacid.touhoulittlemaid.client.resource.GeckoModelLoader;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-
-import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.annotation.Nullable;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 public class ChairModelInfo implements IModelInfo {
     private static final float RENDER_ENTITY_SCALE_MIN = 0.2f;

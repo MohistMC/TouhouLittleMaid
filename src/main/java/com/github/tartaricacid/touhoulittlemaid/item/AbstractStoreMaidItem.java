@@ -3,6 +3,8 @@ package com.github.tartaricacid.touhoulittlemaid.item;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.inventory.tooltip.ItemMaidTooltip;
 import io.github.fabricators_of_create.porting_lib.item.EntityTickListenerItem;
+import java.util.Objects;
+import java.util.Optional;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -10,9 +12,6 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.Objects;
-import java.util.Optional;
 
 public abstract class AbstractStoreMaidItem extends Item implements EntityTickListenerItem {
     static final String MAID_INFO = "MaidInfo";

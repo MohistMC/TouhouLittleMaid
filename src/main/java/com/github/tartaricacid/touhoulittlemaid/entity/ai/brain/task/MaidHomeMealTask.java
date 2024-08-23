@@ -12,13 +12,12 @@ import com.google.common.collect.ImmutableMap;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import java.util.List;
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class MaidHomeMealTask extends MaidCheckRateTask {
     private static final int MAX_DELAY_TIME = 50;

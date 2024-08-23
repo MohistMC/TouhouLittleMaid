@@ -2,6 +2,9 @@ package com.github.tartaricacid.touhoulittlemaid.client.animation.gecko.conditio
 
 import com.github.tartaricacid.touhoulittlemaid.api.entity.IMaid;
 import com.google.common.collect.Lists;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
@@ -9,10 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 
 public class ConditionalUse {
     private static final String EMPTY = "";

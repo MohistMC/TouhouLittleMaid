@@ -6,6 +6,8 @@ import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityBox;
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import java.util.List;
+import java.util.stream.IntStream;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,9 +15,6 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-
-import java.util.List;
-import java.util.stream.IntStream;
 
 public class EntityBoxRender extends EntityRenderer<EntityBox> {
     private final List<ResourceLocation> texturesGroup = Lists.newArrayList();

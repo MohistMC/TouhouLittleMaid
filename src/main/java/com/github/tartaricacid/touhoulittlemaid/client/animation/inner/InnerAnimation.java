@@ -1,9 +1,8 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.inner;
 
 import com.google.common.collect.Maps;
-import net.minecraft.resources.ResourceLocation;
-
 import java.util.HashMap;
+import net.minecraft.resources.ResourceLocation;
 
 public final class InnerAnimation {
     static final HashMap<ResourceLocation, IAnimation<?>> INNER_ANIMATION = Maps.newHashMap();

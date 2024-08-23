@@ -4,7 +4,6 @@ import com.github.tartaricacid.touhoulittlemaid.TouhouLittleMaid;
 import com.github.tartaricacid.touhoulittlemaid.block.BlockGomoku;
 import com.github.tartaricacid.touhoulittlemaid.client.model.BookshelfModel;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityBookshelf;
-import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityGomoku;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;

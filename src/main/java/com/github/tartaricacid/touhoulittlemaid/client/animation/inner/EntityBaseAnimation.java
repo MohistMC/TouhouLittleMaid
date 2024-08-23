@@ -1,15 +1,15 @@
 package com.github.tartaricacid.touhoulittlemaid.client.animation.inner;
 
 import com.github.tartaricacid.touhoulittlemaid.client.animation.script.ModelRendererWrapper;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Objects;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Objects;
 
 import static com.github.tartaricacid.touhoulittlemaid.client.animation.inner.InnerAnimation.INNER_ANIMATION;
 

@@ -1,8 +1,7 @@
 package com.github.tartaricacid.touhoulittlemaid.block.properties;
 
-import net.minecraft.util.StringRepresentable;
-
 import javax.annotation.Nullable;
+import net.minecraft.util.StringRepresentable;
 
 public enum GomokuPart implements StringRepresentable {
     LEFT_UP("left_up", -1, -1),

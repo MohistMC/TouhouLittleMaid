@@ -1,11 +1,5 @@
 package com.github.tartaricacid.touhoulittlemaid.event;
 
-import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
-import io.github.fabricators_of_create.porting_lib.entity.events.LivingEntityUseItemEvents;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-
 public class CancelSaddleMaidEvent {
 
     /*

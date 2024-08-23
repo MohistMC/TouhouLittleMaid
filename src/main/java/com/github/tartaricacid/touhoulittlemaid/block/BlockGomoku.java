@@ -15,6 +15,7 @@ import com.github.tartaricacid.touhoulittlemaid.network.message.ChessDataToClien
 import com.github.tartaricacid.touhoulittlemaid.network.message.SpawnParticleMessage;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityGomoku;
 import com.github.tartaricacid.touhoulittlemaid.tileentity.TileEntityJoy;
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -48,8 +49,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.Nullable;
 
 public class BlockGomoku extends BlockJoy {
     public static final EnumProperty<GomokuPart> PART = EnumProperty.create("part", GomokuPart.class);

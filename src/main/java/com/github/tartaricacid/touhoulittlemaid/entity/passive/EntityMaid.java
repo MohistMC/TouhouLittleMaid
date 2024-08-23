@@ -206,7 +206,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
     }
 
     public static boolean canInsertItem(ItemStack stack) {
-        ResourceLocation key = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        ResourceLocation key = BuiltInRegistries.ITEM.getKey(stack.getItem());
         if (key != null && MaidConfig.MAID_BACKPACK_BLACKLIST.get().contains(key.toString())) {
             return false;
         }
@@ -277,13 +277,12 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     @Override
     public void tick() {
-        if (!MinecraftForge.EVENT_BUS.post(new MaidTickEvent(this))) {
             super.tick();
             maidBauble.fireEvent((b, s) -> {
                 b.onTick(this, s);
                 return false;
             });
-        }
+
     }
 
     @Override
@@ -350,10 +349,8 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
     public InteractionResult mobInteract(Player playerIn, InteractionHand hand) {
         if (hand == InteractionHand.MAIN_HAND && isOwnedBy(playerIn)) {
             ItemStack stack = playerIn.getMainHandItem();
-            InteractMaidEvent event = new InteractMaidEvent(playerIn, this, stack);
             // 利用短路原理，逐个触发对应的交互事件
-            if (MinecraftForge.EVENT_BUS.post(event)
-                || stack.interactLivingEntity(playerIn, this, hand).consumesAction()
+            if (stack.interactLivingEntity(playerIn, this, hand).consumesAction()
                 || openMaidGui(playerIn)) {
                 return InteractionResult.SUCCESS;
             }
@@ -618,9 +615,6 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if (MinecraftForge.EVENT_BUS.post(new MaidAttackEvent(this, source, amount))) {
-            return false;
-        }
         if (source.getEntity() instanceof Player && this.isOwnedBy((Player) source.getEntity())) {
             // 玩家对自己女仆的伤害数值为 1/5，最大为 2
             amount = Mth.clamp(amount / 5, 0, 2);
@@ -691,9 +685,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     @Override
     public void die(DamageSource cause) {
-        if (!MinecraftForge.EVENT_BUS.post(new MaidDeathEvent(this, cause))) {
-            super.die(cause);
-        }
+        super.die(cause);
     }
 
     public boolean canPickup(Entity pickupEntity, boolean checkInWater) {
@@ -781,7 +773,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
     }
 
     @Override
-    protected void hurtArmor(DamageSource damageSource, float damage) {
+    public void hurtArmor(DamageSource damageSource, float damage) {
         // 依据原版玩家护甲耐久掉落机制书写而成
         // net.minecraft.entity.player.PlayerInventory#hurtArmor
         if (damage <= 0.0F) {
@@ -1081,7 +1073,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     @Override
     protected void dropEquipment() {
-        if (this.getOwnerUUID() != null && !level.isClientSide && !PetBedDrop.hasPetBedPos(this)) {
+        if (this.getOwnerUUID() != null && !level.isClientSide) {
             // 掉出世界的判断
             Vec3 position = Vec3.atBottomCenterOf(blockPosition());
             // 防止卡在基岩里？
@@ -1119,9 +1111,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     @Override
     public ItemStack eat(Level level, ItemStack food) {
-        ItemStack foodAfterEat = super.eat(level, food);
-        MinecraftForge.EVENT_BUS.post(new MaidAfterEatEvent(this, foodAfterEat));
-        return foodAfterEat;
+        return super.eat(level, food);
     }
 
     @Override
@@ -1265,7 +1255,6 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     @Override
     public void swing(InteractionHand pHand) {
-        SlashBladeCompat.swingSlashBlade(this, getItemInHand(pHand));
         super.swing(pHand);
     }
 
@@ -1704,7 +1693,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
             ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
             if (tags != null) {
                 ResourceLocation key = new ResourceLocation(config.substring(1));
-                TagKey<Item> tagKey = TagKey.create(BuiltInRegistries.ITEM.getRegistryKey(), key);
+                TagKey<Item> tagKey = TagKey.create(BuiltInRegistries.ITEM.key(), key);
                 if (tags.isKnownTagName(tagKey)) {
                     return Ingredient.of(tagKey);
                 }

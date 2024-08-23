@@ -6,13 +6,21 @@ import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.sensor.MaidHosti
 import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.sensor.MaidNearestLivingEntitySensor;
 import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.sensor.MaidPickupEntitiesSensor;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.MaidChatBubbles;
-import com.github.tartaricacid.touhoulittlemaid.entity.item.*;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityBox;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityBroom;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityChair;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityExtinguishingAgent;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityPowerPoint;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntitySit;
+import com.github.tartaricacid.touhoulittlemaid.entity.item.EntityTombstone;
 import com.github.tartaricacid.touhoulittlemaid.entity.monster.EntityFairy;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.entity.projectile.EntityDanmaku;
 import com.github.tartaricacid.touhoulittlemaid.entity.projectile.EntityThrowPowerPoint;
 import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import java.util.List;
+import java.util.Optional;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.world.entity.Entity;
@@ -28,9 +36,6 @@ import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.entity.schedule.Schedule;
 import net.minecraft.world.entity.schedule.ScheduleBuilder;
 import net.minecraft.world.level.levelgen.Heightmap;
-
-import java.util.List;
-import java.util.Optional;
 
 public final class InitEntities {
     public static final LazyRegistrar<EntityType<?>> ENTITY_TYPES = LazyRegistrar.create(BuiltInRegistries.ENTITY_TYPE, TouhouLittleMaid.MOD_ID);
@@ -84,6 +89,7 @@ public final class InitEntities {
     public static RegistryObject<EntityDataSerializer<?>> MAID_SCHEDULE_DATA_SERIALIZERS = DATA_SERIALIZERS.register("maid_schedule", () -> MaidSchedule.DATA);
     public static RegistryObject<EntityDataSerializer<?>> MAID_CHAT_BUBBLE_DATA_SERIALIZERS = DATA_SERIALIZERS.register("maid_chat_bubble", () -> MaidChatBubbles.DATA);
 
+    /*
     @SubscribeEvent
     public static void addEntityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(EntityMaid.TYPE, EntityMaid.createAttributes().build());
@@ -96,4 +102,5 @@ public final class InitEntities {
     public static void addEntitySpawnPlacement(FMLCommonSetupEvent event) {
         SpawnPlacements.register(InitEntities.FAIRY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules);
     }
+     */
 }

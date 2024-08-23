@@ -1,12 +1,5 @@
 package com.github.tartaricacid.touhoulittlemaid.event.food;
 
-import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.BowlFoodItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-
-
 public class BowlFoodEvent {
 
     /*

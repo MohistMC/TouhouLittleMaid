@@ -7,14 +7,13 @@ import com.google.common.base.Preconditions;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import java.util.List;
+import java.util.function.Predicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.List;
-import java.util.function.Predicate;
 
 public final class ItemsUtil {
     private ItemsUtil() {

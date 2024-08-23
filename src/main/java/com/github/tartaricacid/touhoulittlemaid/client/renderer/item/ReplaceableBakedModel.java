@@ -1,6 +1,9 @@
 package com.github.tartaricacid.touhoulittlemaid.client.renderer.item;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Supplier;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -10,10 +13,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.function.Supplier;
 
 public class ReplaceableBakedModel implements BakedModel {
     private final BakedModel rawBakedModel;

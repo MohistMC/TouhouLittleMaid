@@ -6,6 +6,9 @@ import com.github.tartaricacid.touhoulittlemaid.item.ItemEntityPlaceholder;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -15,10 +18,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
 
 public class TileEntityEntityPlaceholderRenderer extends BlockEntityWithoutLevelRenderer {
     private static final EntityPlaceholderModel BASE_MODEL = new EntityPlaceholderModel();

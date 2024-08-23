@@ -1,8 +1,8 @@
 package com.github.tartaricacid.touhoulittlemaid.util;
 
-import net.minecraft.client.gui.components.Button;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.gui.components.Button;
 
 @Environment(EnvType.CLIENT)
 public final class GuiTools {

@@ -3,12 +3,11 @@ package com.github.tartaricacid.touhoulittlemaid.client.sound.data;
 import com.github.tartaricacid.touhoulittlemaid.client.sound.CustomSoundLoader;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.mojang.blaze3d.audio.SoundBuffer;
+import javax.annotation.Nullable;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-
-import javax.annotation.Nullable;
 
 public class MaidSoundInstance extends AbstractTickableSoundInstance {
     private final String id;
