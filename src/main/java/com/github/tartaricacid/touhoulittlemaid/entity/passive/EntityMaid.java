@@ -1690,7 +1690,7 @@ public class EntityMaid extends TamableAnimal implements CrossbowAttackMob, IMai
 
     private static Ingredient getConfigIngredient(String config, Item defaultItem) {
         if (config.startsWith(MaidConfig.TAG_PREFIX)) {
-            ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+            ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
             if (tags != null) {
                 ResourceLocation key = new ResourceLocation(config.substring(1));
                 TagKey<Item> tagKey = TagKey.create(BuiltInRegistries.ITEM.key(), key);

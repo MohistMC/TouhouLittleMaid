@@ -50,7 +50,7 @@ public class ConditionalHold {
             idTest.add(new ResourceLocation(substring));
         }
         if (name.startsWith(tagPre) && ResourceLocation.isValidResourceLocation(substring)) {
-            ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+            ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
             if (tags == null) {
                 return;
             }
@@ -101,7 +101,7 @@ public class ConditionalHold {
             return EMPTY;
         }
 		ItemStack itemInHand = maid.asEntity().getItemInHand(hand);
-        ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+        ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
         if (tags == null) {
             return EMPTY;
         }

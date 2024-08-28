@@ -14,6 +14,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 
 public class FurnaceBackpackContainer extends MaidMainContainer {
     public static final MenuType<FurnaceBackpackContainer> TYPE = IForgeMenuType.create((windowId, inv, data) -> new FurnaceBackpackContainer(windowId, inv, data.readInt()));

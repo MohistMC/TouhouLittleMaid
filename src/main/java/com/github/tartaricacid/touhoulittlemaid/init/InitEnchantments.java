@@ -8,6 +8,7 @@ import com.github.tartaricacid.touhoulittlemaid.item.enchantment.SpeedyEnchantme
 import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
@@ -18,5 +19,10 @@ public class InitEnchantments {
     public static final RegistryObject<Enchantment> SPEEDY = ENCHANTMENTS.register("speedy", SpeedyEnchantment::new);
     public static final RegistryObject<Enchantment> ENDERS_ENDER = ENCHANTMENTS.register("enders_ender", EndersEnderEnchantment::new);
 
-    public static final EnchantmentCategory GOHEI = EnchantmentCategory.create("gohei", item -> item instanceof ItemHakureiGohei);
+    public static final EnchantmentCategory GOHEI = new EnchantmentCategory(){
+        @Override
+        public boolean canEnchant(Item item) {
+            return item instanceof ItemHakureiGohei;
+        }
+    };
 }

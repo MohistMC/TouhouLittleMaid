@@ -15,6 +15,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
 import java.util.Optional;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 
 public class CraftingTableBackpackContainer extends MaidMainContainer {
     public static final MenuType<CraftingTableBackpackContainer> TYPE = IForgeMenuType.create((windowId, inv, data) -> new CraftingTableBackpackContainer(windowId, inv, data.readInt()));

@@ -53,7 +53,7 @@ public class ConditionArmor {
             if (!ResourceLocation.isValidResourceLocation(id)) {
                 return;
             }
-            ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+            ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
             if (tags == null) {
                 return;
             }
@@ -106,7 +106,7 @@ public class ConditionArmor {
         }
         List<TagKey<Item>> tagListTest = tagTest.get(slot);
 		ItemStack item = maid.asEntity().getItemBySlot(slot);
-        ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+        ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
         if (tags == null) {
             return EMPTY;
         }

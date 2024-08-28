@@ -148,10 +148,12 @@ public class InfoGetManager {
         });
     }
 
+    /*
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(InfoGetManager::checkInfoJsonFile);
     }
+     */
 
     @SuppressWarnings("AlibabaAvoidManuallyCreateThread")
     public static void downloadResourcesPack(DownloadInfo info) {

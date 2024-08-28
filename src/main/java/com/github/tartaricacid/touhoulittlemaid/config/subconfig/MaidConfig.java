@@ -121,7 +121,7 @@ public final class MaidConfig {
     }
 
     private static String getItemId(Item item) {
-        ResourceLocation key = ForgeRegistries.ITEMS.getKey(item);
+        ResourceLocation key = BuiltInRegistries.ITEM.getKey(item);
         Preconditions.checkNotNull(key);
         return key.toString();
     }

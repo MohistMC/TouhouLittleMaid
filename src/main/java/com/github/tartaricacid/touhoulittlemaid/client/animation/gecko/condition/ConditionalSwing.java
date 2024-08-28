@@ -99,7 +99,7 @@ public class ConditionalSwing {
             return EMPTY;
         }
 		ItemStack itemInHand = maid.asEntity().getItemInHand(hand);
-        ITagManager<Item> tags = ForgeRegistries.ITEMS.tags();
+        ITagManager<Item> tags = BuiltInRegistries.ITEM.tags();
         if (tags == null) {
             return EMPTY;
         }

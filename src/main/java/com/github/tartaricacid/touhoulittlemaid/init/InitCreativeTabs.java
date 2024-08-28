@@ -10,6 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTab.Row;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -69,13 +70,10 @@ import static com.github.tartaricacid.touhoulittlemaid.init.InitItems.WIRELESS_I
 public class InitCreativeTabs {
     public static final LazyRegistrar<CreativeModeTab> TABS = LazyRegistrar.create(Registries.CREATIVE_MODE_TAB, TouhouLittleMaid.MOD_ID);
 
-    public static RegistryObject<CreativeModeTab> MAIN_TAB = TABS.register("main", () -> CreativeModeTab.builder()
+    public static RegistryObject<CreativeModeTab> MAIN_TAB = TABS.register("main", () -> CreativeModeTab.builder(Row.BOTTOM, 0)
             .title(Component.translatable("item_group.touhou_little_maid.main"))
             .icon(() -> InitItems.HAKUREI_GOHEI.get().getDefaultInstance())
             .displayItems((par, output) -> {
-                if (ModList.get().isLoaded("patchouli")) {
-                    output.accept(ItemModBook.forBook(new ResourceLocation(TouhouLittleMaid.MOD_ID, "memorizable_gensokyo")));
-                }
                 output.accept(MAID_SPAWN_EGG.get());
                 output.accept(FAIRY_SPAWN_EGG.get());
                 output.accept(HAKUREI_GOHEI.get());
@@ -125,22 +123,20 @@ public class InitCreativeTabs {
                 output.accept(MODEL_SWITCHER.get());
                 output.accept(CHAIR_SHOW.get());
                 output.accept(BROOM.get());
-                if (FMLEnvironment.dist == Dist.CLIENT) {
-                    ItemEntityPlaceholder.fillItemCategory(output);
-                }
+
                 output.accept(getEnchantmentBook(InitEnchantments.IMPEDING));
                 output.accept(getEnchantmentBook(InitEnchantments.SPEEDY));
                 output.accept(getEnchantmentBook(InitEnchantments.ENDERS_ENDER));
             }).build());
 
-    public static RegistryObject<CreativeModeTab> GARAGE_KIT_TAB = TABS.register("chair", () -> CreativeModeTab.builder()
+    public static RegistryObject<CreativeModeTab> GARAGE_KIT_TAB = TABS.register("chair", () -> CreativeModeTab.builder(Row.BOTTOM, 1)
             .title(Component.translatable("item_group.touhou_little_maid.chair"))
             .icon(() -> InitItems.CHAIR.get().getDefaultInstance())
             .displayItems((par, output) -> {
                 ItemChair.fillItemCategory(output);
             }).build());
 
-    public static RegistryObject<CreativeModeTab> CHAIR_TAB = TABS.register("garage_kit", () -> CreativeModeTab.builder()
+    public static RegistryObject<CreativeModeTab> CHAIR_TAB = TABS.register("garage_kit", () -> CreativeModeTab.builder(Row.BOTTOM, 2)
             .title(Component.translatable("item_group.touhou_little_maid.garage_kit"))
             .icon(() -> InitItems.GARAGE_KIT.get().getDefaultInstance())
             .displayItems((par, output) -> {

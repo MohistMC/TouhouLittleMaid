@@ -5,7 +5,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.inventory.Slot;
-import net.minecraftforge.common.extensions.IMenuType;
 
 public class EnderChestBackpackContainer extends MaidMainContainer {
     public static final MenuType<EnderChestBackpackContainer> TYPE = IMenuType.create((windowId, inv, data) -> new EnderChestBackpackContainer(windowId, inv, data.readInt()));

@@ -6,6 +6,10 @@ import net.minecraft.nbt.IntTag;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.common.capabilities.CapabilityToken;
+import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 public class MaidNumCapabilityProvider implements ICapabilitySerializable<IntTag> {
     public static Capability<MaidNumCapability> MAID_NUM_CAP = CapabilityManager.get(new CapabilityToken<>() {

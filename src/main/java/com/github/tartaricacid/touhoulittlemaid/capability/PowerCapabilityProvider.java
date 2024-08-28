@@ -5,6 +5,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.FloatTag;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.common.capabilities.CapabilityToken;
+import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 public class PowerCapabilityProvider implements ICapabilitySerializable<FloatTag> {
     public static Capability<PowerCapability> POWER_CAP = CapabilityManager.get(new CapabilityToken<>() {

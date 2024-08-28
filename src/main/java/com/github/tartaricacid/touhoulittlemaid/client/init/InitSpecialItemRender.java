@@ -64,7 +64,7 @@ public final class InitSpecialItemRender {
     }
 
     public static void addInHandModel(Item item) {
-        ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
+        ResourceLocation res = BuiltInRegistries.ITEM.getKey(item);
         if (res != null) {
             ModelResourceLocation rawName = new ModelResourceLocation(res, "inventory");
             ModelResourceLocation inHandName = new ModelResourceLocation(res.getNamespace(), res.getPath() + "_in_hand", "inventory");
@@ -73,7 +73,7 @@ public final class InitSpecialItemRender {
     }
 
     public static void addReplaceableModel(Item item, ResourceLocation replacedModel, Supplier<Boolean> isReplace) {
-        ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
+        ResourceLocation res = BuiltInRegistries.ITEM.getKey(item);
         if (res != null) {
             ModelResourceLocation rawModelResourceLocation = new ModelResourceLocation(res, "inventory");
             ModelResourceLocation replacedModelResourceLocation = new ModelResourceLocation(replacedModel, "inventory");

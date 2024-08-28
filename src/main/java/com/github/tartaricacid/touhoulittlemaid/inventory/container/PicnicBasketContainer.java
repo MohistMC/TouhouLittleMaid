@@ -11,6 +11,7 @@ import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import org.jetbrains.annotations.NotNull;
 
 public class PicnicBasketContainer extends AbstractContainerMenu {

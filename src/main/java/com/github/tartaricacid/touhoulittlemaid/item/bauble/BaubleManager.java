@@ -9,6 +9,7 @@ import com.google.common.collect.Maps;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
 import java.util.Map;
 import javax.annotation.Nullable;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -22,17 +23,7 @@ public final class BaubleManager {
 
     public static void init() {
         BaubleManager manager = new BaubleManager();
-        manager.bind(InitItems.DROWN_PROTECT_BAUBLE, new DrownProtectBauble());
-        manager.bind(InitItems.EXPLOSION_PROTECT_BAUBLE, new ExplosionProtectBauble());
-        manager.bind(InitItems.ULTRAMARINE_ORB_ELIXIR, new ExtraLifeBauble());
-        manager.bind(InitItems.FALL_PROTECT_BAUBLE, new FallProtectBauble());
-        manager.bind(InitItems.FIRE_PROTECT_BAUBLE, new FireProtectBauble());
         manager.bind(InitItems.ITEM_MAGNET_BAUBLE, new ItemMagnetBauble());
-        manager.bind(InitItems.MAGIC_PROTECT_BAUBLE, new MagicProtectBauble());
-        manager.bind(InitItems.NIMBLE_FABRIC, new NimbleFabricBauble());
-        manager.bind(InitItems.PROJECTILE_PROTECT_BAUBLE, new ProjectileProtectBauble());
-        manager.bind(InitItems.MUTE_BAUBLE, new MuteBauble());
-        manager.bind(Items.TOTEM_OF_UNDYING, new UndyingTotemBauble());
         manager.bind(InitItems.WIRELESS_IO, new WirelessIOBauble());
         for (ILittleMaid littleMaid : TouhouLittleMaid.EXTENSIONS) {
             littleMaid.bindMaidBauble(manager);
@@ -48,7 +39,7 @@ public final class BaubleManager {
     @Nullable
     public static IMaidBauble getBauble(ItemStack stack) {
         Item item = stack.getItem();
-        return getBauble(RegistryObject.create(ForgeRegistries.ITEMS.getKey(item), ForgeRegistries.ITEMS));
+        return getBauble(new RegistryObject(BuiltInRegistries.ITEM.getKey(item), BuiltInRegistries.ITEM.key()));
     }
 
     public void bind(RegistryObject<Item> item, IMaidBauble bauble) {
@@ -56,6 +47,6 @@ public final class BaubleManager {
     }
 
     public void bind(Item item, IMaidBauble bauble) {
-        BAUBLES.put(RegistryObject.create(ForgeRegistries.ITEMS.getKey(item), ForgeRegistries.ITEMS), bauble);
+        BAUBLES.put(new RegistryObject(BuiltInRegistries.ITEM.getKey(item), BuiltInRegistries.ITEM.key()), bauble);
     }
 }
